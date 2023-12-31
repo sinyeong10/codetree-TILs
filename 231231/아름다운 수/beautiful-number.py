@@ -9,16 +9,16 @@ def check(answer):
     for i in range(n):
         if q == answer[i]:
             count += 1
-            if count > answer[i]:
-                return False
         else:
-            if count != answer[i]:
+            if count % answer[i-1] != 0:
                 return False
+            q = answer[i]
             count = 1
     
     #마지막 경우
-    if count != answer[i]:
+    if count % answer[-1] != 0:
         return False
+    # print(answer)
     return True
 
 def solve(length):
