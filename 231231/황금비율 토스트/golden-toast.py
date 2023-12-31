@@ -91,7 +91,7 @@ for q in order:
     elif q[0] == "R" and it != l.end():
         it = it.next
     elif q[0] == "D" and it != l.end():
-        l.erase(it)
+        it = l.erase(it)
     elif q[0] == "P":
         l.insert(it, q[1])
 
