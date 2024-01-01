@@ -20,8 +20,8 @@ def quick_sort(base, low, high):
     if low < high: #최소 원소 2개
         pos = quick_sorting(base, low, high) #피봇 골라 정렬
         #분할로 내려가 정렬
-        quick_sorting(base, low, pos-1)
-        quick_sorting(base, pos+1, high)
+        quick_sort(base, low, pos-1)
+        quick_sort(base, pos+1, high)
 
 quick_sort(base, 0, len(base)-1)
 
