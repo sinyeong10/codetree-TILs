@@ -7,7 +7,7 @@ class Stack:
 
     def pop(self):
         if self.empty():
-            raise 
+            raise Exception("비어있음")
         return self.items.pop()
     
     def size(self):
@@ -18,7 +18,7 @@ class Stack:
 
     def top(self):
         if self.empty():
-            raise 
+            raise Exception("비어있음")
         return self.items[-1]
 
 
