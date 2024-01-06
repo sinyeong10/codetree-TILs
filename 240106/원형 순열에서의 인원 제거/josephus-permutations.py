@@ -7,7 +7,7 @@ for i in range(1, n+1):
 result = []
 idx = 1
 while len(base) != 0:
-    if idx%k != 0:
+    if idx%k != 0: #idx가 k번째인 것만 빼면서 순환 반복
         base.append(base.popleft())
     else:
         result.append(base.popleft())
