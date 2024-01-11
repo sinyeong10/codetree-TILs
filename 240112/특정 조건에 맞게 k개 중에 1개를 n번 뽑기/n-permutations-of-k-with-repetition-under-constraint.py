@@ -10,7 +10,7 @@ def solve():
         return
 
     for num in range(1, k+1):
-        if len(result) <= 2 or not(result[-1] == result[-2] == num):
+        if len(result) <= 1 or not(result[-1] == result[-2] == num):
             result.append(num)
             solve()
             result.pop()
