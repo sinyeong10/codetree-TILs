@@ -13,7 +13,7 @@ def move():
 
     dx, dy = [-1, 1, 0, 0], [0, 0, -1, 1] #상하좌우
 
-    for i in range(m):
+    for i in range(len(ball)):
         x, y = ball[i]
         next_pos = [-1, -1]
         value_max = 0
