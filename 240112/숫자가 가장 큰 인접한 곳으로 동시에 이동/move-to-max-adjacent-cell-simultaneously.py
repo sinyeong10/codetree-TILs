@@ -12,7 +12,7 @@ def in_range(x, y):
 def move():
     global ball
     tmp = [[0]*n for _ in range(n)]
-    next_ball = []
+    next_ball = [] #아래에서 얉은 복사했지만 재할당하여 같은 객체 참조하지 않음!
 
     dx, dy = [-1, 1, 0, 0], [0, 0, -1, 1] #상하좌우
 
