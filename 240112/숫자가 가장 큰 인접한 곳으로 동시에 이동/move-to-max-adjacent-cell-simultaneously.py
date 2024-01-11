@@ -3,6 +3,9 @@ n, m, t = list(map(int, stdin.readline().split()))
 base = [list(map(int, stdin.readline().split())) for _ in range(n)]
 ball = [list(map(int, stdin.readline().split())) for _ in range(m)]
 
+for i in range(m): #인덱스 변환 필요
+    ball[i] = [ball[i][0]-1, ball[i][1]-1]
+
 def in_range(x, y):
     return 0<=x<n and 0<=y<n
 
@@ -18,7 +21,7 @@ def move():
         next_pos = [-1, -1]
         value_max = 0
         for dxs, dys in zip(dx, dy):
-            next_x, next_y = x-1+dxs, y-1+dys
+            next_x, next_y = x+dxs, y+dys
             if in_range(next_x, next_y) and base[next_x][next_y] > value_max:
                 value_max = base[next_x][next_y]
                 next_pos = [next_x, next_y]
@@ -28,8 +31,9 @@ def move():
         for j in range(n):
             if tmp[i][j] == 1:
                 next_ball.append([i, j])
-    ball = next_ball
+    ball = next_ball #수정이 일어나 전역변수 설정 필요!
 
 for _ in range(t):
     move()
+    # print(ball)
 print(len(ball))
