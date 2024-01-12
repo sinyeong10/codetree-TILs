@@ -10,4 +10,5 @@ dp[0] = base[0]
 for i in range(1, n):
     dp[i] = max(base[i], dp[i-1]+base[i])
 
-print(dp[-1])
+# print(dp)
+print(max(dp))
