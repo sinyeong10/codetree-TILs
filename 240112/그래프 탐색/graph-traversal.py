@@ -10,13 +10,15 @@ for _ in range(m):
 visited = [False for _ in range(n+1)]
 
 def dfs(node): #현재 방문 노드!
+    total = 0 #현재 노드의 자식의 총합
     visited[node] = True
     # print(node)
     for next_node in graph[node]:
         if visited[next_node]:
             continue
         # print("이동", next_node)
-        return dfs(next_node)+1
-    return 1
+        total += 1 #다음 노드
+        total += dfs(next_node) #for문 돌며 자식의 경우를 다 더함
+    return total #자식 다 더한 결과를 부모에 전달
 
-print(dfs(1)-1)
+print(dfs(1))
