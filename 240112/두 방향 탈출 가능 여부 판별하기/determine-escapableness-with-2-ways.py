@@ -4,7 +4,7 @@ base = [list(map(int, stdin.readline().split())) for _ in range(n)]
 visited = [[False]*m for _ in range(n)]
 
 def in_range(x,y):
-    return 0<=x<n and 0<=y<m and not visited[x][y]
+    return 0<=x<n and 0<=y<m and not visited[x][y] and base[x][y] == 1
 
 def dfs(x, y):
     visited[x][y] = True
@@ -15,7 +15,7 @@ def dfs(x, y):
     dx, dy = [1, 0], [0, 1] #하, 우
     for dxs, dys in zip(dx, dy):
         next_x, next_y = x+dxs, y+dys
-        if in_range(next_x, next_y) and base[next_x][next_y] == 1: #이동 가능
+        if in_range(next_x, next_y): #이동 가능
             if dfs(next_x, next_y):
                 return True
     return False
