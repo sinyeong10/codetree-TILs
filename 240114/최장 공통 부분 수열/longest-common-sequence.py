@@ -7,10 +7,14 @@ dp = [[0]*len(b) for _ in range(len(a))] #dp[i][j]는 a의 i번째 문자, b의 
 for i in range(len(b)):
     if a[0] == b[i]:
         dp[0][i] = 1
+    else:
+        dp[0][i] = dp[0][i-1]
 
 for j in range(len(a)):
     if a[j] == b[0]:
         dp[j][0] = 1
+    else:
+        dp[j][0] = dp[j-1][0]
 
 # for elem in dp:
 #     print(*elem)
