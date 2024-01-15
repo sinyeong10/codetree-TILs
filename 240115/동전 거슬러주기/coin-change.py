@@ -28,3 +28,5 @@ for i in range(m+1):
             dp[i] = min(dp[i], dp[i-coin[j]]+1) #inf와 inf+1을 처리하면 inf나옴
 
 print(dp[m] if dp[m] != float("inf") else -1)
+
+#inf에 동전의 갯수를 더하다 오버플로우가 일어날 수도 있어 가능한 최댓값인 10001로 갱신하는 게 더 좋음
