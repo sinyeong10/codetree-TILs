@@ -21,7 +21,7 @@ def check(i,j): #i,j위치에서 체크
 
 answer=-1
 for i in range(n):
-    for j in range(n):
+    for j in range(m):
         if base[i][j] > 0:
             answer = max(answer, check(i, j))
 print(answer)
