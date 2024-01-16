@@ -20,7 +20,7 @@ def RLE():
 #초기 값
 result = RLE()
 
-for _ in range(len(A)-1): #len(A)만큼 돔
+for _ in range(len(A)-2): #len(A)만큼 돔
     A = A[-1]+A[:-1]
     result = min(result, RLE())
     # print(A)
