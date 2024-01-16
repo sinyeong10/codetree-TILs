@@ -50,9 +50,11 @@ result = -1
 for i in range(n):
     for j in range(m): #i,j위치에서 탐색
         total_height = float("inf") #최대 길이를 가져와서 바로 처리
-        for q in range(j, m):
+        for q in range(j, m): #가로로 가면서 전체 중 최소 거리 계산
             total_height = min(total_height, down_max[i][q])
-            col_size = q-j+1
+
+            #box 크기 계산
+            col_size = q-j+1 #q,j 포함이라 +1임
             result = max(result, total_height*col_size)
         # print(i, j, total_height, col_size, result)
 print(-1 if result == 0 else result) #result가 하나라도 체크하면 0으로 갱신되버림
