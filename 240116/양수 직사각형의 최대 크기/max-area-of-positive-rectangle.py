@@ -55,4 +55,4 @@ for i in range(n):
             col_size = q-j+1
             result = max(result, total_height*col_size)
         # print(i, j, total_height, col_size, result)
-print(result)
+print(-1 if result == 0 else result) #result가 하나라도 체크하면 0으로 갱신되버림
