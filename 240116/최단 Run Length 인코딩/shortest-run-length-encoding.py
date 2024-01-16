@@ -18,9 +18,10 @@ def RLE():
     return len(ans)
 
 #초기 값
-result = RLE()
+result = float("inf")
 
-for _ in range(len(A)//2): #len(A)만큼 돔
+#len(A)//2만큼 돌면 babbbb가 안됨
+for _ in range(len(A)): #len(A)만큼 돔
     A = A[-1]+A[:-1]
     result = min(result, RLE())
     # print(A)
