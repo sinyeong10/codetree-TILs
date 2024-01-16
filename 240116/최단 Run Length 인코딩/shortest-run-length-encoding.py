@@ -1,8 +1,6 @@
 from sys import stdin
 A = stdin.readline().strip()
 
-result = float("inf")
-
 def RLE():
     stand = A[0]
     count = 0
@@ -19,8 +17,11 @@ def RLE():
     # print(ans)
     return len(ans)
 
-for _ in range(len(A)):
-    result = min(result, RLE())
+#초기 값
+result = RLE()
+
+for _ in range(len(A)): #len(A)만큼 돔
     A = A[-1]+A[:-1]
+    result = min(result, RLE())
     # print(A)
 print(result)
