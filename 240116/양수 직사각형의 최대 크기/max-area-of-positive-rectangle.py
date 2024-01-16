@@ -12,11 +12,13 @@ def check(i,j): #i,j위치에서 체크
     
     result = -1
     for w in range(n-i): #아래로 내려가며
-        for q in range(count): #체크
+        for q in range(count): #가로 체크
             if base[i+w][j+q] <= 0:
                 break
             result = max(result, (w+1)*(q+1))
-    # print(i,j, "/", result, count-1, n-i-1)
+        if base[i+w][j] <= 0: #내려갔을때 -면 이후론 불가능
+            break
+    # print(i,j, "/", result, "/", n-i-1, m-j-1, w, count-1)
     return result
 
 answer=-1
