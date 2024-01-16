@@ -14,8 +14,9 @@ def check(i,j): #i,j위치에서 체크
     for w in range(n-i): #아래로 내려가며
         for q in range(count): #가로 체크
             if base[i+w][j+q] <= 0:
+                count = q #다음 내려갈 때는 여기까지만 가로 체크 가능
                 break
-            result = max(result, (w+1)*(q+1))
+            result = max(result, (w+1)*(q+1)) #인덱스이므로 길이로 바꿔줌
         if base[i+w][j] <= 0: #내려갔을때 -면 이후론 불가능
             break
     # print(i,j, "/", result, "/", n-i-1, m-j-1, w, count-1)
