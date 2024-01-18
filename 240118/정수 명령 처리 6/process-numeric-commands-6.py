@@ -42,4 +42,4 @@ for _ in range(n):
         else:
             print(0)
     elif order[0] == "top":
-        base.top()
+        print(base.top())
