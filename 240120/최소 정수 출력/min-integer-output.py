@@ -9,7 +9,5 @@ for _ in range(n):
             print(0)
         else:
             print(heapq.heappop(hq))
-            
-        continue
-    
-    heapq.heappush(hq, num)
+    else:
+        heapq.heappush(hq, num)
