@@ -33,7 +33,7 @@ def check():
     count = 0
     for i in range(n):
         for j in range(n):
-            if tmp[i][j] <= 0:
+            if tmp[i][j] == 0:
                 continue
             if in_range(i, j+1) and tmp[i][j]==tmp[i][j+1]:
                 count += 1
@@ -45,7 +45,7 @@ def check():
 max_value = 0
 for i in range(n):
     for j in range(n): #터지는 위치
-        tmp = [[-1]*n for _ in range(n)]
+        tmp = [[0]*n for _ in range(n)]
         bomb(i, j) #i,j에서 폭발
         clear() #중력으로 아래로 떨어짐
         # print(*tmp)
