@@ -45,7 +45,7 @@ def check():
 max_value = 0
 for i in range(n):
     for j in range(n): #터지는 위치
-        tmp = [[0]*n for _ in range(n)]
+        tmp = [[-1]*n for _ in range(n)]
         bomb(i, j) #i,j에서 폭발
         clear() #중력으로 아래로 떨어짐
         # print(*tmp)
