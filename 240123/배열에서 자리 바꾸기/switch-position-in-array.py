@@ -30,6 +30,7 @@ for _ in range(q):
     elif base[a] == head:
         head = base[c]
 
+    #<a,b>,<c,d>가 인접한 경우 좌우 노드 저장시 같은 노드가 겹칠 수 있음
     if base[b].next == base[c]:
         # print("A")
         #<c,d>를 <a,b>앞으로 보냄
@@ -42,6 +43,7 @@ for _ in range(q):
         connect(base[a].prev, base[b].next) #구간 빼냄
         connect(base[c].prev,base[a])
         connect(base[b],base[c])
+        
     else:
         # print("C")
         start = base[c].prev
