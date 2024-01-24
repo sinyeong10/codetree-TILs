@@ -3,9 +3,9 @@ n, k = list(map(int, stdin.readline().split()))
 base = [[0]*(n+1)]
 for _ in range(n):
     base.append([0]+list(map(int, stdin.readline().split())))
-print(base)
+# print(base)
 
-# prefix_sum = [[0]*(n+1) for _ in range(n+1)]
+prefix_sum = [[0]*(n+1) for _ in range(n+1)]
 
 for i in range(1, n+1):
     for j in range(1, n+1):
