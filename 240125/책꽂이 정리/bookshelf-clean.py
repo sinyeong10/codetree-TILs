@@ -103,7 +103,7 @@ for _ in range(q):
             continue
         bookcase_idx[j].add("tail", bookcase_idx[i].remove(bookcase_idx[i].head))
     elif order[0] == 2:
-        if bookcase_idx[i].head == None or i == j:
+        if bookcase_idx[i].head == None:
             continue
         bookcase_idx[j].add("head", bookcase_idx[i].remove(bookcase_idx[i].tail))
     elif order[0] == 3:
@@ -111,7 +111,7 @@ for _ in range(q):
             continue
         bookcase_idx[j].move_all("head", bookcase_idx[i])
     elif order[0] == 4:
-        if bookcase_idx[i].head == None:
+        if bookcase_idx[i].head == None or i == j:
             continue
         bookcase_idx[j].move_all("tail", bookcase_idx[i])
         
