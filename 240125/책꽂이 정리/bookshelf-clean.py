@@ -146,8 +146,6 @@ for t in range(q):
             bookcase_idx[j].tail = bookcase_idx[j].tail.next
 
         bookcase_idx[i].head = bookcase_idx[i].head.next
-        
-        
         # print(bookcase_idx[i].head.data, bookcase_idx[i].tail.data)
         # print(bookcase_idx[j].head.data, bookcase_idx[j].tail.data)
         disconnect(bookcase_idx[j].tail, bookcase_idx[i].head)
@@ -156,7 +154,7 @@ for t in range(q):
 
         #한개 옮기는 데 그게 마지막일 경우
         if bookcase_idx[i].nodelen == 0:
-            bookcase_idx[i].head = None
+            # bookcase_idx[i].head = None #앞에서 처리됨
             bookcase_idx[i].tail = None
     elif order[0] == 2:
         if bookcase_idx[i].tail is None: #변경할 값이 없으면 패스
@@ -176,7 +174,7 @@ for t in range(q):
         bookcase_idx[i].nodelen -= 1
         if bookcase_idx[i].nodelen == 0:
             bookcase_idx[i].head = None
-            bookcase_idx[i].tail = None
+            # bookcase_idx[i].tail = None
 
     elif order[0] == 3:
         if bookcase_idx[i].head is None: #변경할 값이 없으면 패스
