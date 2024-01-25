@@ -121,8 +121,18 @@ for i in range(1, n+1):
 
 
 
-for _ in range(q):
+for t in range(q):
     order = list(map(int, stdin.readline().split())) #다 숫자라 숫자로 처리했음!
+
+    # for i in range(1, k+1):
+    #     print(t, i, ":", end=" ")
+    #     print(len(bookcase_idx[i]), end=" ")
+    #     node = bookcase_idx[i].head
+    #     while node != None:
+    #         print(node.data, end=" ")
+    #         node = node.next
+    #     print()
+
     i, j = order[1], order[2]
     if order[0] == 1:
         if bookcase_idx[i].head is None: #변경할 값이 없으면 패스
@@ -143,6 +153,9 @@ for _ in range(q):
         disconnect(bookcase_idx[j].tail, bookcase_idx[i].head)
         bookcase_idx[j].nodelen += 1
         bookcase_idx[i].nodelen -= 1
+        if bookcase_idx[i].nodelen == 0:
+            bookcase_idx[i].head = None
+            bookcase_idx[i].tail = None
     elif order[0] == 2:
         if bookcase_idx[i].tail is None: #변경할 값이 없으면 패스
             continue
@@ -159,6 +172,9 @@ for _ in range(q):
         disconnect(bookcase_idx[i].tail, bookcase_idx[j].head)
         bookcase_idx[j].nodelen += 1
         bookcase_idx[i].nodelen -= 1
+        if bookcase_idx[i].nodelen == 0:
+            bookcase_idx[i].head = None
+            bookcase_idx[i].tail = None
 
     elif order[0] == 3:
         if bookcase_idx[i].head is None or i == j: #변경할 값이 없으면 패스
@@ -175,7 +191,7 @@ for _ in range(q):
             bookcase_idx[i].head = None
             bookcase_idx[i].tail = None
         else:
-            disconnect(bookcase_idx[i].tail, bookcase_idx[i].head)
+            disconnect(bookcase_idx[i].tail, bookcase_idx[j].head)
 
         len_value = len(bookcase_idx[i]) #i,j가 같을 수 있음
         bookcase_idx[j].nodelen += len_value
