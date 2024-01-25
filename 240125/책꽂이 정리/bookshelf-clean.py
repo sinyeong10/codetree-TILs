@@ -179,7 +179,7 @@ for t in range(q):
             bookcase_idx[i].tail = None
 
     elif order[0] == 3:
-        if bookcase_idx[i].head is None or i == j: #변경할 값이 없으면 패스
+        if bookcase_idx[i].head is None: #변경할 값이 없으면 패스
             continue
 
         if len(bookcase_idx[j])==0: #들어갈 곳에 아무것도 없는 상태
