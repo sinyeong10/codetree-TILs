@@ -135,8 +135,7 @@ for _ in range(q):
             connect(bookcase_idx[j].tail, bookcase_idx[i].head)
             bookcase_idx[j].tail = bookcase_idx[j].tail.next
 
-        if i != j:
-            bookcase_idx[i].head = bookcase_idx[i].head.next
+        bookcase_idx[i].head = bookcase_idx[i].head.next
         
         
         # print(bookcase_idx[i].head.data, bookcase_idx[i].tail.data)
@@ -155,8 +154,7 @@ for _ in range(q):
             connect(bookcase_idx[i].tail, bookcase_idx[j].head)
             bookcase_idx[j].head = bookcase_idx[j].head.prev
 
-        if i != j:
-            bookcase_idx[i].tail = bookcase_idx[i].tail.prev
+        bookcase_idx[i].tail = bookcase_idx[i].tail.prev
 
         disconnect(bookcase_idx[i].tail, bookcase_idx[j].head)
         bookcase_idx[j].nodelen += 1
