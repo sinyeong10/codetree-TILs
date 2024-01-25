@@ -153,6 +153,8 @@ for t in range(q):
         disconnect(bookcase_idx[j].tail, bookcase_idx[i].head)
         bookcase_idx[j].nodelen += 1
         bookcase_idx[i].nodelen -= 1
+
+        #한개 옮기는 데 그게 마지막일 경우
         if bookcase_idx[i].nodelen == 0:
             bookcase_idx[i].head = None
             bookcase_idx[i].tail = None
@@ -198,7 +200,7 @@ for t in range(q):
         bookcase_idx[i].nodelen -= len_value
 
     elif order[0] == 4:
-        if bookcase_idx[i].head is None or i == j: #변경할 값이 없으면 패스
+        if bookcase_idx[i].head is None: #변경할 값이 없으면 패스
             continue
 
         if len(bookcase_idx[j])==0: #들어갈 곳에 아무것도 없는 상태
@@ -225,88 +227,3 @@ for i in range(1, k+1):
         print(node.data, end=" ")
         node = node.next
     print()
-
-
-#구현하면서 오류를 고치다보니 뭐가 문제인지 확인하기도 어렵다....
-# for _ in range(q):
-#     order = list(map(int, stdin.readline().split())) #다 숫자라 숫자로 처리했음!
-#     i, j = order[1], order[2]
-#     if order[0] == 1:
-#         if bookcase_idx[i].head is None: #변경할 값이 없으면 패스
-#             continue
-
-#         if len(bookcase_idx[j])==0: #들어갈 곳에 아무것도 없는 상태
-#             bookcase_idx[j].head = bookcase_idx[i].head
-#             bookcase_idx[j].tail = bookcase_idx[i].head
-#         else:
-#             connect(bookcase_idx[j].tail, bookcase_idx[i].head)
-#             bookcase_idx[j].tail = bookcase_idx[j].tail.next
-
-#         if i != j:
-#             bookcase_idx[i].head = bookcase_idx[i].head.next
-        
-        
-#         # print(bookcase_idx[i].head.data, bookcase_idx[i].tail.data)
-#         # print(bookcase_idx[j].head.data, bookcase_idx[j].tail.data)
-#         disconnect(bookcase_idx[j].tail, bookcase_idx[i].head)
-#         bookcase_idx[j].nodelen += 1
-#         bookcase_idx[i].nodelen -= 1
-#     elif order[0] == 2:
-#         if bookcase_idx[i].tail is None: #변경할 값이 없으면 패스
-#             continue
-
-#         if len(bookcase_idx[j])==0: #들어갈 곳에 아무것도 없는 상태
-#             bookcase_idx[j].head = bookcase_idx[i].tail
-#             bookcase_idx[j].tail = bookcase_idx[i].tail
-#         else:
-#             connect(bookcase_idx[i].tail, bookcase_idx[j].head)
-#             bookcase_idx[j].head = bookcase_idx[j].head.prev
-
-#         if i != j:
-#             bookcase_idx[i].tail = bookcase_idx[i].tail.prev
-
-#         disconnect(bookcase_idx[i].tail, bookcase_idx[j].head)
-#         bookcase_idx[j].nodelen += 1
-#         bookcase_idx[i].nodelen -= 1
-
-#     elif order[0] == 3:
-#         if bookcase_idx[i].head is None: #변경할 값이 없으면 패스
-#             continue
-
-#         if len(bookcase_idx[j])==0: #들어갈 곳에 아무것도 없는 상태
-#             bookcase_idx[j].head = bookcase_idx[i].head
-#             bookcase_idx[j].tail = bookcase_idx[i].tail
-#         else:
-#             connect(bookcase_idx[i].tail, bookcase_idx[j].head)
-
-#         bookcase_idx[j].head = bookcase_idx[i].head
-#         if i != j:
-#             bookcase_idx[i].head = None
-#             bookcase_idx[i].tail = None
-#         else:
-#             disconnect(bookcase_idx[i].tail, bookcase_idx[i].head)
-
-#         len_value = len(bookcase_idx[i]) #i,j가 같을 수 있음
-#         bookcase_idx[j].nodelen += len_value
-#         bookcase_idx[i].nodelen -= len_value
-
-#     elif order[0] == 4:
-#         if bookcase_idx[i].head is None: #변경할 값이 없으면 패스
-#             continue
-
-#         if len(bookcase_idx[j])==0: #들어갈 곳에 아무것도 없는 상태
-#             bookcase_idx[j].head = bookcase_idx[i].head
-#             bookcase_idx[j].tail = bookcase_idx[i].tail
-#         else:
-#             connect(bookcase_idx[j].tail, bookcase_idx[i].head)
-
-#         bookcase_idx[j].tail = bookcase_idx[i].tail
-#         if i != j:
-#             bookcase_idx[i].head = None
-#             bookcase_idx[i].tail = None
-#         else:
-#             disconnect(bookcase_idx[i].tail, bookcase_idx[i].head)
-
-#         len_value = len(bookcase_idx[i]) #i,j가 같을 수 있음
-#         bookcase_idx[j].nodelen += len_value
-#         bookcase_idx[i].nodelen -= len_value
