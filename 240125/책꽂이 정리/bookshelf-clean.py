@@ -30,6 +30,21 @@ class bookcase:
     def __len__(self):
         return self.nodelen
 
+    def move_all(self, direct, bookcase): #같은 경우는 배제됨
+        if self.head == None:
+            self.head = bookcase.head
+            self.tail = bookcase.tail
+        elif direct == "tail": #bookcase를 맨뒤와 연결
+            connect(self.tail, bookcase.head)
+            self.tail = bookcase.tail
+        elif direct == "head": #bookcase를 맨앞과 연결
+            connect(bookcase.tail, self.head)
+            self.head = bookcase.head
+        self.nodelen += len(bookcase)
+        bookcase.head = None
+        bookcase.tail = None
+        bookcase.nodelen = 0
+        
     def add(self, direct, node):
         if self.head == None:
             self.head = node
@@ -88,28 +103,18 @@ for _ in range(q):
             continue
         bookcase_idx[j].add("tail", bookcase_idx[i].remove(bookcase_idx[i].head))
     elif order[0] == 2:
-        if bookcase_idx[i].head == None:
+        if bookcase_idx[i].head == None or i == j:
             continue
         bookcase_idx[j].add("head", bookcase_idx[i].remove(bookcase_idx[i].tail))
     elif order[0] == 3:
-        if bookcase_idx[i].head == None:
+        if bookcase_idx[i].head == None or i == j:
             continue
-        node = bookcase_idx[i].tail
-        n = len(bookcase_idx[i]) #값이 변할 수 있어서 미리 저장
-        for _ in range(n):
-            tmp, node = node, node.prev #remove시 관계가 사라지기에 미리 저장
-            bookcase_idx[j].add("head", bookcase_idx[i].remove(tmp))
-            # print(bookcase_idx[i].head.data, bookcase_idx[i].tail.data)
-            # print(bookcase_idx[j].head.data, bookcase_idx[j].tail.data)
+        bookcase_idx[j].move_all("head", bookcase_idx[i])
     elif order[0] == 4:
         if bookcase_idx[i].head == None:
             continue
-        node = bookcase_idx[i].head
-        n = len(bookcase_idx[i]) #값이 변할 수 있어서 미리 저장
-        for _ in range(n):
-            tmp, node = node, node.next #remove시 관계가 사라지기에 미리 저장
-            bookcase_idx[j].add("tail", bookcase_idx[i].remove(tmp))
-
+        bookcase_idx[j].move_all("tail", bookcase_idx[i])
+        
 for i in range(1, k+1):
     print(len(bookcase_idx[i]), end=" ")
     node = bookcase_idx[i].head
