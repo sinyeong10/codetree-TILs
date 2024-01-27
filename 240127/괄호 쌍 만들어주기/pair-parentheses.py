@@ -8,6 +8,7 @@ for i in range(len(sentence)-2,-1,-1): #맨 마지막은 따로 처리
         count += 1
         if count == 2:
             R[i] += R[i+1]+1
+            count -= 1
         else:
             R[i] = R[i+1]
     else:
