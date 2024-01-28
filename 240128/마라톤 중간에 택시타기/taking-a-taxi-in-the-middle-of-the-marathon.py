@@ -1,5 +1,6 @@
 from sys import stdin
 n = int(stdin.readline())
+#x,y를 튜플이 아니라 2개의 리스트로 관리했으면 좀 더 간편해졌다!
 base = [list(map(int, stdin.readline().split())) for _ in range(n)]
 L = [0 for _ in range(n)] #왼쪽부터 누적해서 처리됨
 R = [0 for _ in range(n)] #오른쪽부터 누적해서 처리됨
