@@ -16,7 +16,7 @@ B = list(map(int, stdin.readline().split()))
 #             i+=1
 #     return True
 
-
+#이게 좀 덜 햇갈리는 듯!
 def solve():
     i = 0 #A의 다음 살펴볼 위치
     for j in range(m): #m까지 조건 충족시 이동
