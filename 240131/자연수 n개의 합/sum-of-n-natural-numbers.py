@@ -8,10 +8,10 @@ def find(s):
     max_index = 0
     while left<=right:
         mid = (left+right)//2
-        if mid*(mid+1)/2 <= s:
+        if mid*(mid+1)/2 <= s: #s보다 mid로 계산한 결과가 작으므로 우측에 추가적으로 봐야함
             max_index = max(max_index, mid)
             left = mid+1
-        else:
+        else: #s보다 mid로 계산한 결과가 커서 좌측을 봐야함
             right = mid-1
     return max_index
 
