@@ -12,11 +12,11 @@ base = list(map(int, stdin.readline().split()))
 
 # 그리디 방식
 max_value = float("-inf")
-total = base[0]
-for i in range(1, n):
-    if total < 0:
+total = 0 #앞의 합산 값
+for i in range(n):
+    if total < 0: #-이면 포함하지 않는 게 이득, 따라서 지금부터 다시 시작!
         total = base[i]
-    else:
+    else: #아니면 현재값을 더함
         total += base[i]
     max_value = max(max_value, total)
 print(max_value)
