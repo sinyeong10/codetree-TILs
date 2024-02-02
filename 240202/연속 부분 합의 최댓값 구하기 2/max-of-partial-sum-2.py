@@ -11,7 +11,7 @@ base = list(map(int, stdin.readline().split()))
 # print(max(dp))
 
 # 그리디 방식
-max_value = 0
+max_value = float("-inf")
 total = base[0]
 for i in range(1, n):
     if total < 0:
