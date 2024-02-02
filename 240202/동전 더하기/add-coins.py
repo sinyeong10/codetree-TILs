@@ -6,5 +6,5 @@ total = 0
 for i in range(n-1,-1,-1):
     tmp = k//base[i]
     total += tmp
-    k -= tmp*base[i]
+    k -= tmp*base[i] #k%=base[i]해도 같은 결과를 낼 수 있다!
 print(total)
