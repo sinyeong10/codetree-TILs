@@ -19,4 +19,5 @@ for i in range(n):
     else: #아니면 현재값을 더함
         total += base[i]
     max_value = max(max_value, total)
+    # print(i, total)
 print(max_value)
