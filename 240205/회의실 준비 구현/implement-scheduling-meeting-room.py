@@ -1,7 +1,7 @@
 from sys import stdin
 n = int(stdin.readline())
 base = [list(map(int, stdin.readline().split())) for _ in range(n)]
-base.sort(key = lambda x : (x[1], x[0]))
+base.sort(key = lambda x : (x[1], x[0])) #문제에서 s<e라는 조건이 있기에 x[1]로만 정렬해도 됨
 # print(base)
 
 total = 0
