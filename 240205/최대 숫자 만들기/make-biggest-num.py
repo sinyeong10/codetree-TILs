@@ -6,7 +6,7 @@ from functools import cmp_to_key
 
 def compare(x, y):
     a, b = str(x), str(y)
-
+    #최대 길이가 같아 int형 변환 없이 사전순으로 정렬해도 됨
     if int(a+b) < int(b+a): #b가 앞으로!
         return 1
     elif int(a+b) > int(b+a): #a가 앞으로!
@@ -22,7 +22,7 @@ def compare(x, y):
     # else: #우선 순위가 동일
     #     return 0
 
-base.sort(key=cmp_to_key(compare))
+base.sort(key=cmp_to_key(compare)) #2개를 비교하기 위함!
 answer = ""
 for elem in base:
     answer += str(elem)
