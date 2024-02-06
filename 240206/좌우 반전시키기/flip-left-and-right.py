@@ -4,7 +4,7 @@ base = list(map(int, stdin.readline().split()))
 
 def solve():
     if n == 1:
-        print(1 if base[0] != 1 else 0)
+        print(-1 if base[0] != 1 else 0)
         return
     trans = {0 : 1, 1 : 0}
     total = 0
