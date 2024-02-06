@@ -8,7 +8,7 @@ trans = [0 for _ in range(n)]
 for i in range(n):
     if base[i] != target[i]:
         trans[i] += 1
-print(trans)
+# print(trans)
 
 #연속된 1로 이뤄진 서로 다른 그룹의 수!
 total = 0
