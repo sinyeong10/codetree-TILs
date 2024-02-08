@@ -31,10 +31,10 @@ def dijkstra(node):
             if graph[min_index][k] == 0: #연결이 없음! or 자기 자신임!
                 continue
             dist[k] = min(dist[k], graph[min_index][k]+dist[min_index])
-            
+
 start = 1
 dijkstra(start)
 for idx in range(1,n+1):
     if idx == start:
         continue
-    print(dist[idx])
+    print(-1 if dist[idx] == float("inf") else dist[idx])
