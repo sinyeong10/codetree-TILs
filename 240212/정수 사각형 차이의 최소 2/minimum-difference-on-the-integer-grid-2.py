@@ -22,21 +22,26 @@ def stardard(num):
         return False
     return move(0,0,base_2d[0][0], base_2d[0][0])
 
-min_value = 100
-left = 1
-right = 100
-while left<=right:
-    mid = (left+right)//2
-    if stardard(mid): #이정도 차이로 이동이 가능함!
-        min_value = min(min_value, mid)
-        right = mid-1
-    else:
-        left = mid+1
-print(min_value)
+# min_value = 100
+# left = 1
+# right = 100
+# while left<=right:
+#     mid = (left+right)//2
+#     if stardard(mid): #이정도 차이로 이동이 가능함!
+#         min_value = min(min_value, mid)
+#         right = mid-1
+#     else:
+#         left = mid+1
+# print(min_value)
 
 # print(stardard(19))
 # print(stardard(20))
 # print(stardard(21))
+
+for i in range(1, 100):
+    if stardard(i):
+        print(i)
+        break
 
 # dp_2d = [[(100, 1)]*n for _ in range(n)] #최소 최대로 갱신!
 
