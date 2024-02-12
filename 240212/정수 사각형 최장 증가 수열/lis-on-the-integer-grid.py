@@ -10,7 +10,6 @@ def in_range(i,j):
     return 0<=i<n and 0<=j<n
 
 #마지막 루프에서 값이 가장 작아야하므로 total을 전달해서 증가시켜 호출하는 방법은 아님!
-#
 def sol(i,j, total): #i,j에서 시작하는 경우의 갯수
     # print("def :",i, j, total)
     if dp_2d[i][j] != 0: #이미 기록되어있으면 패스
@@ -40,5 +39,5 @@ for i in range(n):
         max_value = max(max_value, sol(i, j, 0))
 print(max_value)
 
-for elem in dp_2d:
-    print(*elem)
+# for elem in dp_2d:
+#     print(*elem)
