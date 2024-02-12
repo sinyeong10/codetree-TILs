@@ -13,7 +13,7 @@ def stardard(num):
         dx, dy = [0,1],[1,0] #오른쪽, 아래 체크
         for dxs, dys in zip(dx, dy):
             next_i, next_j = i+dxs, j+dys
-            if in_range(next_i, next_j) and abs(min_value - base_2d[next_i][next_j]) <= num:
+            if in_range(next_i, next_j) and abs(min_value - base_2d[next_i][next_j]) < num:
                 if move(next_i, next_j, min(min_value, base_2d[next_i][next_j])):
                     return True
         return False
@@ -31,7 +31,9 @@ while left<=right:
         left = mid+1
 print(min_value)
 
-
+# print(stardard(19))
+# print(stardard(20))
+# print(stardard(21))
 
 # dp_2d = [[(100, 1)]*n for _ in range(n)] #최소 최대로 갱신!
 
