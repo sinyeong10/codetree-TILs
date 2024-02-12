@@ -6,18 +6,21 @@ def in_range(i,j):
     return 0<=i<n and 0<=j<n
 
 def stardard(num):
-    def move(i, j, min_value):
+    def move(i, j, min_value, max_value):
+        # print(i, j, min_value)
         if i == n-1 and j == n-1:
             return True
             
         dx, dy = [0,1],[1,0] #오른쪽, 아래 체크
         for dxs, dys in zip(dx, dy):
             next_i, next_j = i+dxs, j+dys
-            if in_range(next_i, next_j) and abs(min_value - base_2d[next_i][next_j]) < num:
-                if move(next_i, next_j, min(min_value, base_2d[next_i][next_j])):
-                    return True
+            if in_range(next_i, next_j):
+                tmp1, tmp2 = min(min_value, base_2d[next_i][next_j]), max(max_value, base_2d[next_i][next_j])
+                if abs(tmp2 - tmp1) <= num:
+                    if move(next_i, next_j, tmp1, tmp2):
+                        return True
         return False
-    return move(0,0,base_2d[0][0])
+    return move(0,0,base_2d[0][0], base_2d[0][0])
 
 min_value = 100
 left = 1
