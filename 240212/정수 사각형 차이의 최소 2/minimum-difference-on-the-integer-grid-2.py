@@ -4,7 +4,8 @@ base_2d = [list(map(int, stdin.readline().split())) for _ in range(n)]
 
 dp_2d = [[(100, 1)]*n for _ in range(n)] #최소 최대로 갱신!
 
-dp_2d[0][0] = (base_2d[0][0], base_2d[0][0])
+min_value, max_value = min(base_2d[0][0], base_2d[-1][-1]), max(base_2d[0][0], base_2d[-1][-1])
+dp_2d[0][0] = (min_value, max_value)
 for j in range(1,n):
     min_value, max_value = dp_2d[0][j-1]
     min_value = min(min_value, base_2d[0][j])
@@ -32,8 +33,8 @@ for i in range(1, n):
                 dp_2d[i][j] = min_value, max_value
 
         # print(i,j)
-        # for elem in dp_2d:
-        #     print(*elem)
+# for elem in dp_2d:
+#     print(*elem)
 
 a,b = dp_2d[-1][-1]
 print(b-a)
