@@ -87,7 +87,7 @@ def standard(num):
 min_value = 100
 for i in range(1, 100):
     tmp = standard(i)
-    print(i, tmp)
+    # print(i, tmp)
     if tmp != 101:
         min_value = min(min_value, tmp-i)
     else:
