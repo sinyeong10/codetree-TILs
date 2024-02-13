@@ -2,40 +2,67 @@ from sys import stdin
 n = int(stdin.readline())
 base_2d = [list(map(int, stdin.readline().split())) for _ in range(n)]
 
-def in_range(i,j):
-    return 0<=i<n and 0<=j<n
-
+#테뷸레이션
 def standard(num):
     if base_2d[0][0] < num:
         return 101
+    
+    #초기 설정!
     maxdp_2d = [[float("inf")]*n for _ in range(n)] #최대값중 최소
-    def move(i, j, min_value, max_value):
-        # print(i, j, min_value, max_value)
+    maxdp_2d[0][0] = base_2d[0][0]
+    for j in range(1, n):
+        if base_2d[0][j] >= num:
+            maxdp_2d[0][j] = max(maxdp_2d[0][j-1], base_2d[0][j])
+        else: #갈 수 없음!
+            break
+    for i in range(1, n):
+        if base_2d[i][0] >= num:
+            maxdp_2d[i][0] = max(maxdp_2d[i-1][0], base_2d[i][0])
+        else: #갈 수 없음!
+            break
+    
+    for i in range(1,n):
+        for j in range(1,n):
+            maxdp_2d[i][j] = min(max_dp[i-1][j], max_dp[i][j-1]) #위쪽, 왼쪽
+    print(maxdp_2d)
 
-        # if maxdp_2d[i][j] != float("inf"):
-        #     return maxdp_2d[i][j]
-        if i == n-1 and j == n-1: #도착!
-            maxdp_2d[i][j] = max_value
-            return max_value
+
+
+#메모이제이션 시도중....
+# def in_range(i,j):
+#     return 0<=i<n and 0<=j<n
+
+# def standard(num):
+#     if base_2d[0][0] < num:
+#         return 101
+#     maxdp_2d = [[float("inf")]*n for _ in range(n)] #최대값중 최소
+#     def move(i, j, min_value, max_value):
+#         # print(i, j, min_value, max_value)
+
+#         # if maxdp_2d[i][j] != float("inf"):
+#         #     return maxdp_2d[i][j]
+#         if i == n-1 and j == n-1: #도착!
+#             maxdp_2d[i][j] = max_value
+#             return max_value
             
-        tmp = 101
-        dx, dy = [0,1],[1,0] #오른쪽, 아래 체크
-        for dxs, dys in zip(dx, dy):
-            next_i, next_j = i+dxs, j+dys
-            if in_range(next_i, next_j):
-                if base_2d[next_i][next_j] >= num: #최솟값 이상이라 이동 가능!
-                    tmp1, tmp2 = min(min_value, base_2d[next_i][next_j]), max(max_value, base_2d[next_i][next_j])
-                    end_max = move(next_i, next_j, tmp1, tmp2)
-                    if end_max != 101:
-                        tmp = min(tmp, end_max)
-                # else:
-                    # print(i, j, next_i, next_j, base_2d[next_i][next_j])
-        maxdp_2d[i][j] = tmp
-        return tmp
-    a = move(0,0,base_2d[0][0], base_2d[0][0])
-    # print(maxdp_2d)
-    # print(a)
-    return a
+#         tmp = 101
+#         dx, dy = [0,1],[1,0] #오른쪽, 아래 체크
+#         for dxs, dys in zip(dx, dy):
+#             next_i, next_j = i+dxs, j+dys
+#             if in_range(next_i, next_j):
+#                 if base_2d[next_i][next_j] >= num: #최솟값 이상이라 이동 가능!
+#                     tmp1, tmp2 = min(min_value, base_2d[next_i][next_j]), max(max_value, base_2d[next_i][next_j])
+#                     end_max = move(next_i, next_j, tmp1, tmp2)
+#                     if end_max != 101:
+#                         tmp = min(tmp, end_max)
+#                 # else:
+#                     # print(i, j, next_i, next_j, base_2d[next_i][next_j])
+#         maxdp_2d[i][j] = tmp
+#         return tmp
+#     a = move(0,0,base_2d[0][0], base_2d[0][0])
+#     # print(maxdp_2d)
+#     # print(a)
+#     return a
 
 # min_value = 100
 # left = 1
