@@ -23,8 +23,10 @@ def standard(num):
     
     for i in range(1,n):
         for j in range(1,n):
-            maxdp_2d[i][j] = min(max_dp[i-1][j], max_dp[i][j-1]) #위쪽, 왼쪽
-    print(maxdp_2d)
+            if base_2d[i][j] >= num:
+                maxdp_2d[i][j] = max(min(maxdp_2d[i-1][j], maxdp_2d[i][j-1]), base_2d[i][j]) #위쪽, 왼쪽 중 작은 것과 현재의 최댓값!
+    # print(maxdp_2d)
+    return maxdp_2d[n-1][n-1] if maxdp_2d[n-1][n-1] != float("inf") else 101
 
 
 
