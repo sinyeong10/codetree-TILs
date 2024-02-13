@@ -66,32 +66,33 @@ def standard(num):
 #     # print(a)
 #     return a
 
-min_value = 100
-left = 1
-right = 100
-while left<=right:
-    mid = (left+right)//2
-    # print(mid)
-    tmp = standard(mid)
-    if tmp != 101: #값의 최소가 이 값일 때 이동이 가능함!
-        min_value = min(min_value, tmp-mid)
-        left = mid+1
-    else:
-        right = mid-1
-print(min_value)
+#이동할 수 있는 최소 숫자일 때 그 이전의 값에서 더 차이가 최소가 나올 수 있어 더 찾아봐야함!
+# min_value = 100
+# left = 1
+# right = 100
+# while left<=right:
+#     mid = (left+right)//2
+#     tmp = standard(mid)
+#     print(mid, tmp)
+#     if tmp != 101: #값의 최소가 이 값일 때 이동이 가능함!
+#         min_value = min(min_value, tmp-mid)
+#         left = mid+1
+#     else:
+#         right = mid-1
+# print(min_value)
 
 # print(standard(1))
 # print(standard(2))
 
-# min_value = 100
-# for i in range(1, 100):
-#     tmp = standard(i)
-#     # print(i, tmp)
-#     if tmp != 101:
-#         min_value = min(min_value, tmp-i)
-#     else:
-#         break
-# print(min_value)
+min_value = 100
+for i in range(1, 100):
+    tmp = standard(i)
+    print(i, tmp)
+    if tmp != 101:
+        min_value = min(min_value, tmp-i)
+    else:
+        break
+print(min_value)
 
 
 
