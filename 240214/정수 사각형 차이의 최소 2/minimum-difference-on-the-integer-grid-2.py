@@ -49,7 +49,7 @@ def standard(num):
             maxdp_2d[i][j] = base_2d[i][j]
             return maxdp_2d[i][j]
             
-        tmp = 101
+        tmp = 101 #이동 불가시 이값이 저장됨!
         dx, dy = [0,1],[1,0] #오른쪽, 아래 체크
         for dxs, dys in zip(dx, dy):
             next_i, next_j = i+dxs, j+dys
