@@ -48,11 +48,10 @@ def bfs(i, j):
                 #     if x1 == next_x and x2 > next_y:
                 #         index = (next_x, next_y)
 
-                if max_value < base_2d[next_x][next_y]:
-                    #튜플로 비교할 수 있음! (값, -행, -열)의 순서로 큰 것!
-                    if (max_value, index[0], index[1]) < (base_2d[next_x][next_y], next_x, next_y):
-                        max_value = base_2d[next_x][next_y]
-                        index = (next_x, next_y)
+                #튜플로 비교할 수 있음! (값, -행, -열)의 순서로 큰 것!
+                if (max_value, -index[0], -index[1]) < (base_2d[next_x][next_y], -next_x, -next_y):
+                    max_value = base_2d[next_x][next_y]
+                    index = (next_x, next_y)
     return index
 
 
