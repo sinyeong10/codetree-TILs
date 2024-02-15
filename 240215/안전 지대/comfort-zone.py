@@ -43,4 +43,7 @@ for i in range(1, 100):
     if max_value < tmp:
         max_value = tmp
         answer = i
+
+    if tmp == 0: #다 잠겨서 더 안봐도 됨
+        break
 print(answer, max_value) #수위, 안전영역의 갯수
