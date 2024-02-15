@@ -15,16 +15,17 @@ q = deque()
 visited = [[False]*n for _ in range(n)] #다른 시작위치에서 같은 곳 이동하면 한번만 처리됨!
 
 def bfs():
-    total = 1 #처음의 자기자신!
-
+    # total = 1 #처음의 자기자신!
+    total = 0
     while q:
         x,y = q.popleft() #앞을 뺌
+        total += 1 #여러 개를 넣을 때 카운트를 안해서 빼내면서 카운트!
         for dxs, dys in zip(dx, dy):
             next_x, next_y = x+dxs, y+dys
             if can_go(next_x, next_y):
                 #들어갈 때 관련 처리를 다함!
                 visited[next_x][next_y] = True
-                total += 1
+                # total += 1
                 q.append((next_x,next_y))
     return total
 
@@ -37,6 +38,20 @@ print(bfs())
 
 
 
+
+# def bfs():
+#     total = 1 #처음의 자기자신!
+
+#     while q:
+#         x,y = q.popleft() #앞을 뺌
+#         for dxs, dys in zip(dx, dy):
+#             next_x, next_y = x+dxs, y+dys
+#             if can_go(next_x, next_y):
+#                 #들어갈 때 관련 처리를 다함!
+#                 visited[next_x][next_y] = True
+#                 total += 1
+#                 q.append((next_x,next_y))
+#     return total
 
 # ans = 0
 # for _ in range(k):
