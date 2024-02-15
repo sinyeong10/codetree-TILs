@@ -1,6 +1,6 @@
 from sys import stdin
 import sys
-sys.setrecursionlimit(10**8)
+sys.setrecursionlimit(10**6)
 n = int(stdin.readline())
 base_2d = [list(map(int, stdin.readline().split())) for _ in range(n)]
 
