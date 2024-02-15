@@ -32,12 +32,13 @@ def sol(k):
     return total
 
 #수위가 0일때는 1임
-max_value = 1 #안전영역의 수
-answer = 0 #그때의 수위
+#수위가 1일때는 0
+max_value = 0 #안전영역의 수
+answer = 1 #그때의 수위
 for i in range(1, 100):
     tmp = sol(i)
     #가장 처음 갱신된 것이 k가 가장 작은 최대
     if max_value < tmp:
         max_value = tmp
         answer = i
-print(answer, max_value)
+print(answer, max_value) #수위, 안전영역의 갯수
