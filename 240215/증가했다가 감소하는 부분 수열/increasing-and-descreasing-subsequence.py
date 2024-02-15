@@ -26,7 +26,7 @@ base = list(map(int, stdin.readline().split()))
 #dp 변환 상태를 찍어보니... j가 가져올 dp의 값 기준으로 큰지 작은지 처리해서 틀림
 max_value = 0
 for i in range(n): #i 기준으로 꺽임!
-    dp = [1 for _ in range(n)]
+    dp = [0 for _ in range(n)]
     #처음을 선택하는 경우 한가지!
     dp[0] = 1
 
