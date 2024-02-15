@@ -33,21 +33,26 @@ def bfs(i, j):
                 visited[next_x][next_y] = True
                 q.append((next_x, next_y))
                 
-                #처음은 제외하고 계산해야해서 다음에 갈 곳에서 체크!
-                if max_value < base_2d[next_x][next_y]:
-                    # print("갱신됨!", x,y,base_2d[next_x][next_y])
-                    index = (next_x, next_y)
-                    max_value = base_2d[next_x][next_y]
-                #값이 같은 경우!
-                elif max_value == base_2d[next_x][next_y]:
-                    x1, x2 = index
-                    #행번호가 더 작은 걸로 감!
-                    if x1 > next_x:
-                        index = (next_x, next_y)
-                    #행번호가 같으면 열번호가 더 작은 걸로 감!
-                    if x1 == next_x and x2 > next_y:
-                        index = (next_x, next_y)
+                # #처음은 제외하고 계산해야해서 다음에 갈 곳에서 체크!
+                # if max_value < base_2d[next_x][next_y]:
+                #     # print("갱신됨!", x,y,base_2d[next_x][next_y])
+                #     index = (next_x, next_y)
+                #     max_value = base_2d[next_x][next_y]
+                # #값이 같은 경우!
+                # elif max_value == base_2d[next_x][next_y]:
+                #     x1, x2 = index
+                #     #행번호가 더 작은 걸로 감!
+                #     if x1 > next_x:
+                #         index = (next_x, next_y)
+                #     #행번호가 같으면 열번호가 더 작은 걸로 감!
+                #     if x1 == next_x and x2 > next_y:
+                #         index = (next_x, next_y)
 
+                if max_value < base_2d[next_x][next_y]:
+                    #튜플로 비교할 수 있음! (값, -행, -열)의 순서로 큰 것!
+                    if (max_value, index[0], index[1]) < (base_2d[next_x][next_y], next_x, next_y):
+                        max_value = base_2d[next_x][next_y]
+                        index = (next_x, next_y)
     return index
 
 
