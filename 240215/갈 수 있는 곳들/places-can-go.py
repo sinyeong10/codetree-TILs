@@ -14,7 +14,7 @@ dx, dy = [-1,1,0,0], [0,0,-1,1]
 q = deque()
 visited = [[False]*n for _ in range(n)] #다른 시작위치에서 같은 곳 이동하면 한번만 처리됨!
 
-def bfs(i,j):
+def bfs():
     total = 1 #처음의 자기자신!
 
     while q:
@@ -28,13 +28,23 @@ def bfs(i,j):
                 q.append((next_x,next_y))
     return total
 
-ans = 0
+#매번 처리하지 말고 큐에 한번에 넣고 처리해도 가능!
 for _ in range(k):
     r, c = list(map(int, stdin.readline().split()))
-    r,c = r-1,c-1 #인덱스로
-    if visited[r][c]: #이미 방문시 넘어감
-        continue
     q.append((r,c))
     visited[r][c] = True #처음의 자기자신도 반드시 방문처리를 해줘야함!
-    ans += bfs(r,c)
-print(ans)
+print(bfs())
+
+
+
+
+# ans = 0
+# for _ in range(k):
+#     r, c = list(map(int, stdin.readline().split()))
+#     r,c = r-1,c-1 #인덱스로
+#     if visited[r][c]: #이미 방문시 넘어감
+#         continue
+#     q.append((r,c))
+#     visited[r][c] = True #처음의 자기자신도 반드시 방문처리를 해줘야함!
+#     ans += bfs()
+# print(ans)
