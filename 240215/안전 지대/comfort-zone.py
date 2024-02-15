@@ -1,4 +1,6 @@
 from sys import stdin
+import sys
+sys.setrecursionlimit(10000) #재귀함수의 깊이 설정
 n, m = list(map(int, stdin.readline().split()))
 base_2d = [list(map(int, stdin.readline().split())) for _ in range(n)]
 
