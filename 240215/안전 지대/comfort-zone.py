@@ -40,4 +40,4 @@ for i in range(1, 100):
     if max_value < tmp:
         max_value = tmp
         answer = i
-print(max_value, answer)
+print(answer, max_value)
