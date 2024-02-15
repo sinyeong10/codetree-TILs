@@ -31,7 +31,8 @@ def sol(k):
                 total += dfs(i,j)
     return total
 
-max_value = 0 #안전영역의 수
+#수위가 0일때는 1임
+max_value = 1 #안전영역의 수
 answer = 0 #그때의 수위
 for i in range(1, 100):
     tmp = sol(i)
