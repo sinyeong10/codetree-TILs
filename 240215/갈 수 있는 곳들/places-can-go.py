@@ -31,8 +31,8 @@ def bfs():
 #매번 처리하지 말고 큐에 한번에 넣고 처리해도 가능!
 for _ in range(k):
     r, c = list(map(int, stdin.readline().split()))
-    q.append((r,c))
-    visited[r][c] = True #처음의 자기자신도 반드시 방문처리를 해줘야함!
+    q.append((r-1,c-1))
+    visited[r-1][c-1] = True #처음의 자기자신도 반드시 방문처리를 해줘야함!
 print(bfs())
 
 
