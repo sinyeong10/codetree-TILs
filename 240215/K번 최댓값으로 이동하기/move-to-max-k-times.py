@@ -13,7 +13,7 @@ def can_go(x,y, elem, visited):
         return False
     return True
 
-dx, dy = [-1,1,0,0], [0,0,-1,1] #행번호 작은 게 먼저 나와야함...
+dx, dy = [-1,1,0,0], [0,0,-1,1] #행번호 작은 게 먼저 나와야함... #여기서 처리는 힘듦...
 
 def bfs(i, j):
     visited = [[False]*n for _ in range(n)]
