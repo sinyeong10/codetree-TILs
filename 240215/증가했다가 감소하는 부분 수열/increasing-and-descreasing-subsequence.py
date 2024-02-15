@@ -15,8 +15,9 @@ for i in range(n): #i까지의 최대 기록
         if base[j] > base[i]: #계속 감소시
             dp[i][1] = max(dp[i][1], dp[j][1]+1)
     
-    dp[i][1] = max(dp[i][0], dp[i][0]) #감소하는 경우는 앞이 증가하다 감소할 수 있음!
+    dp[i][1] = max(dp[i][0], dp[i][1]) #감소하는 경우는 앞이 증가하다 감소할 수 있음!
 
+# print(dp)
 max_value = 0
 for i in range(n):
     for j in range(2):
