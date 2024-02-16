@@ -13,5 +13,5 @@ dp[1] = 1
 for i in range(2, n+1):
     for num in [1,2,5]:
         if i>=num:
-            dp[i] += dp[i-num]
+            dp[i] = (dp[i]%10007 + dp[i-num]%10007)%10007 
 print(dp[-1])
