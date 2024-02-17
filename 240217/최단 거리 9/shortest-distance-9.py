@@ -14,6 +14,7 @@ heapq.heappush(hq, (0,a)) #시작점 들어감!
 dist = [float("inf") for _ in range(n+1)]
 dist[a] = 0
 path = [-1 for _ in range(n+1)]
+path[a] = 0
 
 while hq:
     min_dist, min_node = heapq.heappop(hq)
@@ -30,6 +31,7 @@ while hq:
 
 # print(dist)
 # print(path)
+print(dist[b])
 
 answer = []
 answer.append(b)
