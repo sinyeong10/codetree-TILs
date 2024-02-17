@@ -11,6 +11,8 @@ a,b = list(map(int, stdin.readline().split()))
 import heapq
 hq = []
 heapq.heappush(hq, (0,a)) #시작점 들어감!
+
+#시작점을 0으로 표시!
 dist = [float("inf") for _ in range(n+1)]
 dist[a] = 0
 path = [-1 for _ in range(n+1)]
@@ -26,11 +28,12 @@ while hq:
         new_dist = min_dist + target_dist
         if dist[target_node] > new_dist:
             dist[target_node] = new_dist
-            path[target_node] = min_node
+            path[target_node] = min_node #target_node는 min_node를 거쳐 옴
             heapq.heappush(hq, (new_dist, target_node)) #최단 경로로 갱신되어 다시 살펴봄!
 
 # print(dist)
 # print(path)
+
 print(dist[b])
 
 answer = []
