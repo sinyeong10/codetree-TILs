@@ -11,7 +11,7 @@ def check(line):
 
 answer = check(line)
 # print(answer)
-path = []
+# path = []
 
 def sol(idx, last, base): #현재 선택한 선분의 수, 마지막 선분의 우측 끝
     min_value = m+1
@@ -29,12 +29,21 @@ def sol(idx, last, base): #현재 선택한 선분의 수, 마지막 선분의 �
         if last == i+1: #이전과 현재가 같은 경우는 변동이 없어 넘어감!
             continue
         base[i], base[i+1] = base[i+1], base[i]
-        path.append(i)
+        # path.append(i)
         # print(path, base)
         min_value = min(min_value, sol(idx+1, i+1, base)) #이후 가능한 경우중 최소 가져옴
-        path.pop()
+        # path.pop()
         base[i], base[i+1] = base[i+1], base[i]
     return min_value
         
-base = [i for i in range(n)]
-print(sol(0,-1, base))
+# base = [i for i in range(n)]
+# print(sol(0,-1, base))
+
+total = 0
+for i in range(n):
+    if answer[i] != i:
+        for j in range(i, answer[i]):
+            answer[j], answer[j+1] = answer[j+1], answer[j]
+            total += 1
+            # print(i,j,answer)
+print(total)
