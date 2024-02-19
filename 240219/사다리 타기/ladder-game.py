@@ -55,3 +55,22 @@ for i in range(n): #현재 i가 i번째 위치로 보내려 함
         # print(i,j,answer)
 # print(answer)
 print(total)
+
+#주어진 것 중에서 고름!
+tmp = []
+def choice(idx): #idx를 봄
+    min_value = m+1
+    if idx == m:
+        base = [i for _ in range(n)]
+        for q in tmp:
+            x, y = line[q]
+            base[i], base[i-1] = abse[i], base[i-1] #번째 단위라 인덱스 단위로 처리
+        if base[:] == answer[:]:
+            min_value = min(min_value, len(tmp))
+    return min_value
+    tmp.append(idx)
+    min_value = min(min_value, choice(idx+1))
+    tmp.pop()
+    return min_value
+
+choice(0)
