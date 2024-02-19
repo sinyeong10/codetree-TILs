@@ -4,15 +4,15 @@
 24년 02월 12일 목표(25px)를 달성했어요🥳.
 
 ![40xp](https://img.shields.io/badge/EXP-40xp-%235cb85c.svg?for-the-badge)
-![0일째](https://img.shields.io/badge/연속학습-0일째-%23E34F26.svg?for-the-badge)
+![44일째](https://img.shields.io/badge/연속학습-44일째-%23E34F26.svg?for-the-badge)
 
 |총 문제수|획득 경험치|연속 학습|
 |---:|---:|---|
-3|40xp|0일째❄️|
+3|40xp|44일째🔥|
 
 |교재|이름|난이도|상태|최근 제출 코드|
 |---|---|:---:|:---:|---|
-|[Intermediate Low / DP I / 격자 안에서 한 칸씩 전진하는 DP](https://www.codetree.ai/missions?missionId=2)|[[연습]정수 사각형 차이의 최소 2](https://www.codetree.ai/missions/2/problems/minimum-difference-on-the-integer-grid-2)|![어려움][hard]|![Failed][failed]|[링크](https://github.com/sinyeong10/codetree-TILs/blob/main/240212/%EC%A0%95%EC%88%98%20%EC%82%AC%EA%B0%81%ED%98%95%20%EC%B0%A8%EC%9D%B4%EC%9D%98%20%EC%B5%9C%EC%86%8C%202/minimum-difference-on-the-integer-grid-2.py)|
+|[Intermediate Low / DP I / 격자 안에서 한 칸씩 전진하는 DP](https://www.codetree.ai/missions?missionId=2)|[[연습]정수 사각형 차이의 최소 2](https://www.codetree.ai/missions/2/problems/minimum-difference-on-the-integer-grid-2)|![어려움][hard]|![Passed][passed]|[링크](https://github.com/sinyeong10/codetree-TILs/blob/main/240212/%EC%A0%95%EC%88%98%20%EC%82%AC%EA%B0%81%ED%98%95%20%EC%B0%A8%EC%9D%B4%EC%9D%98%20%EC%B5%9C%EC%86%8C%202/minimum-difference-on-the-integer-grid-2.py)|
 |[Intermediate Low / DP I / 격자 안에서 한 칸씩 전진하는 DP](https://www.codetree.ai/missions?missionId=2)|[[테스트]정수 사각형 최댓값의 최소](https://www.codetree.ai/missions/2/problems/minimax-path-in-square)|![쉬움][easy]|![Passed][passed]|[링크](https://github.com/sinyeong10/codetree-TILs/blob/main/240212/%EC%A0%95%EC%88%98%20%EC%82%AC%EA%B0%81%ED%98%95%20%EC%B5%9C%EB%8C%93%EA%B0%92%EC%9D%98%20%EC%B5%9C%EC%86%8C/minimax-path-in-square.py)|
 |[Intermediate Low / DP I / 격자 안에서 한 칸씩 전진하는 DP](https://www.codetree.ai/missions?missionId=2)|[[연습]정수 사각형 최장 증가 수열](https://www.codetree.ai/missions/2/problems/lis-on-the-integer-grid)|![보통][medium]|![Passed][passed]|[링크](https://github.com/sinyeong10/codetree-TILs/blob/main/240212/%EC%A0%95%EC%88%98%20%EC%82%AC%EA%B0%81%ED%98%95%20%EC%B5%9C%EC%9E%A5%20%EC%A6%9D%EA%B0%80%20%EC%88%98%EC%97%B4/lis-on-the-integer-grid.py)|
 
