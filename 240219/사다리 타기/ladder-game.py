@@ -40,10 +40,16 @@ def sol(idx, last, base): #현재 선택한 선분의 수, 마지막 선분의 �
 # print(sol(0,-1, base))
 
 total = 0
-for i in range(n):
-    if answer[i] != i:
-        for j in range(i, answer[i]):
-            answer[j], answer[j+1] = answer[j+1], answer[j]
-            total += 1
-            # print(i,j,answer)
+for i in range(n): #현재 i가 i번째 위치로 보내려 함
+    if answer[i] == i:
+        continue #잘 있음
+
+    for j in range(i, n):
+        if answer[j] == i:
+            break
+    for k in range(j-1, i-1, -1):
+        answer[k], answer[k+1] = answer[k+1], answer[k]
+        total += 1
+        # print(i,j,answer)
+# print(answer)
 print(total)
