@@ -10,8 +10,8 @@ def check(line):
     return arrival
 
 answer = check(line)
-print(answer)
-path = []
+# print(answer)
+# path = []
 
 #문제에서 선분 중 m개를 선택하는 경우라고 명시됨...
 #모든 가능한 경우의 m개 이하 중에 가능한 경우로 이해함....
