@@ -43,6 +43,7 @@ def check(idx, total, value): #현재 보는 위치 idx, 지금가지의 무게 
 # # print(a,b)
 # print(a[-1]+b[-1])
 
+#모두 다 체크하기에 x,y이전은 안봄!
 def choice(x, y): #마지막 선택 위치
     max_value = 0
     ans = (-1,-1)
