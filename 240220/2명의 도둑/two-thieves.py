@@ -19,9 +19,10 @@ def choice(x, y): #마지막 선택 위치
     for i in range(n):
         for j in range(n): #볼 수 있는 최대시 n-m+1임, m이 1시 다 선택되야 함!
             # print(i,j)
-            if (i,j) < (x, y):
-                continue
-            if i == x and y <= j <= y+m-1: #시작 위치 j가 y~y+m-1에 걸림
+            #가장 최선을 구해서 이전도 봐야함
+            # if (i,j) < (x, y):
+            #     continue
+            if i == x and (y <= j <= y+m-1 or j<=y<=j+m-1): #시작 위치 j가 y~y+m-1에 걸리거나 j~j+m-1중에 이전 선택한 y가 있음
                 continue
             tmp = []
             for k in range(min(m, n-j)): #j가 0시 n이면 됨!
@@ -34,6 +35,8 @@ def choice(x, y): #마지막 선택 위치
                 ans = (i,j)
     return (*ans, max_value)
 
+#가장 최선 이후 가장 최선시 문제 발생?
 a = choice(-1,-1)
 b = choice(a[0], a[1])
+# print(a,b)
 print(a[-1]+b[-1])
