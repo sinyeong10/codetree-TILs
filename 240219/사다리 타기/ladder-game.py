@@ -26,6 +26,8 @@ def sol(idx, last, base): #현재 선택한 선분의 수, 마지막 선분의 �
         #     print(path)
         return min_value
     for i in range(n-1):
+        if last == i+1: #이전과 현재가 같은 경우는 변동이 없어 넘어감!
+            continue
         base[i], base[i+1] = base[i+1], base[i]
         path.append(i)
         # print(path, base)
