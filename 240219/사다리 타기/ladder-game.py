@@ -10,12 +10,12 @@ def check(line):
     return arrival
 
 answer = check(line)
-# print(answer)
-# path = []
 
 #문제에서 선분 중 m개를 선택하는 경우라고 명시됨...
 #모든 가능한 경우의 m개 이하 중에 가능한 경우로 이해함....
 # # m개 이하를 선택하는 모든 경우의 수 : 시간 초과
+# print(answer)
+# path = []
 # def sol(idx, last, base): #현재 선택한 선분의 수, 마지막 선분의 우측 끝
 #     print(idx, last, base, path)
 #     min_value = m+1
