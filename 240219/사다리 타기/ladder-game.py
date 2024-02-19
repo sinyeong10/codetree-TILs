@@ -13,32 +13,34 @@ answer = check(line)
 # print(answer)
 # path = []
 
-def sol(idx, last, base): #현재 선택한 선분의 수, 마지막 선분의 우측 끝
-    min_value = m+1
-    if answer[:] == base[:]: #현재 선택한 경우가 가능함!
-        min_value = min(min_value, idx)
+#m개 이하를 선택하는 모든 경우의 수 : 시간 초과
+# def sol(idx, last, base): #현재 선택한 선분의 수, 마지막 선분의 우측 끝
+#     min_value = m+1
+#     if answer[:] == base[:]: #현재 선택한 경우가 가능함!
+#         min_value = min(min_value, idx)
 
-    if idx == m:
-        # if path[:4] == [1,0,2,1]: #예시의 답
-        #     print(path)
+#     if idx == m:
+#         # if path[:4] == [1,0,2,1]: #예시의 답
+#         #     print(path)
 
-        # if min_value != m+1: #길이가 m이면서 정답인 경우는 반드시 있음!
-        #     print(path)
-        return min_value
-    for i in range(n-1):
-        if last == i+1: #이전과 현재가 같은 경우는 변동이 없어 넘어감!
-            continue
-        base[i], base[i+1] = base[i+1], base[i]
-        # path.append(i)
-        # print(path, base)
-        min_value = min(min_value, sol(idx+1, i+1, base)) #이후 가능한 경우중 최소 가져옴
-        # path.pop()
-        base[i], base[i+1] = base[i+1], base[i]
-    return min_value
+#         # if min_value != m+1: #길이가 m이면서 정답인 경우는 반드시 있음!
+#         #     print(path)
+#         return min_value
+#     for i in range(n-1):
+#         if last == i+1: #이전과 현재가 같은 경우는 변동이 없어 넘어감!
+#             continue
+#         base[i], base[i+1] = base[i+1], base[i]
+#         # path.append(i)
+#         # print(path, base)
+#         min_value = min(min_value, sol(idx+1, i+1, base)) #이후 가능한 경우중 최소 가져옴
+#         # path.pop()
+#         base[i], base[i+1] = base[i+1], base[i]
+#     return min_value
         
 # base = [i for i in range(n)]
 # print(sol(0,-1, base))
 
+#기본 정렬 로직으로 앞부터 채워감!
 total = 0
 for i in range(n): #현재 i가 i번째 위치로 보내려 함
     if answer[i] == i:
