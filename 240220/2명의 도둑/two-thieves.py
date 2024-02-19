@@ -43,6 +43,7 @@ def choice(x, y): #마지막 선택 위치
 # # print(a,b)
 # print(a[-1]+b[-1])
 
+#모든 가능한 경우를 체크!
 max_value = 0
 for i in range(n):
     for j in range(n-m+1):
