@@ -40,37 +40,40 @@ answer = check(line)
 # base = [i for i in range(n)]
 # print(sol(0,-1, base))
 
-#기본 정렬 로직으로 앞부터 채워감!
-total = 0
-for i in range(n): #현재 i가 i번째 위치로 보내려 함
-    if answer[i] == i:
-        continue #잘 있음
+# #기본 정렬 로직으로 앞부터 채워감!
+# total = 0
+# for i in range(n): #현재 i가 i번째 위치로 보내려 함
+#     if answer[i] == i:
+#         continue #잘 있음
 
-    for j in range(i, n):
-        if answer[j] == i:
-            break
-    for k in range(j-1, i-1, -1):
-        answer[k], answer[k+1] = answer[k+1], answer[k]
-        total += 1
-        # print(i,j,answer)
-# print(answer)
-print(total)
+#     for j in range(i, n):
+#         if answer[j] == i:
+#             break
+#     for k in range(j-1, i-1, -1):
+#         answer[k], answer[k+1] = answer[k+1], answer[k]
+#         total += 1
+#         # print(i,j,answer)
+# # print(answer)
+# print(total)
 
 #주어진 것 중에서 고름!
 tmp = []
 def choice(idx): #idx를 봄
     min_value = m+1
     if idx == m:
-        base = [i for _ in range(n)]
+        base = [i for i in range(n)]
         for q in tmp:
             x, y = line[q]
-            base[i], base[i-1] = abse[i], base[i-1] #번째 단위라 인덱스 단위로 처리
+            base[x], base[x-1] = base[x-1], base[x] #번째 단위라 인덱스 단위로 처리
         if base[:] == answer[:]:
             min_value = min(min_value, len(tmp))
-    return min_value
+        # print(tmp, base)
+        return min_value
+
     tmp.append(idx)
     min_value = min(min_value, choice(idx+1))
     tmp.pop()
+    min_value = min(min_value, choice(idx+1))
     return min_value
 
-choice(0)
+print(choice(0))
