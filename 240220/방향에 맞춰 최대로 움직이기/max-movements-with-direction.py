@@ -13,6 +13,8 @@ def sol(x,y):
     value = base_2d[x][y]
     count = 0
     # print(x,y, direct, value)
+
+    #최대 n번 갈 수 있고 해당 경우에 대해 범위 안인지 조건 만족하는 지 봐도 된다.
     while in_range(x,y):
         next_dx, next_dy = x+dx[direct], y+dy[direct]
         if in_range(next_dx, next_dy) and base_2d[next_dx][next_dy] > value:
