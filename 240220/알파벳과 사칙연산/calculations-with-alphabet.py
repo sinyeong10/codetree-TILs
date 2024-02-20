@@ -21,11 +21,12 @@ def check(case):
         else:
             j+=1
             continue
+    # print(case, total)
     return total
 
 case = {}
 def sol(idx):
-    max_value = 0
+    max_value = float("-inf") #음수도 답이 될 수 있음!
     if idx == len(word):
         max_value = max(max_value, check(case))
         return max_value
