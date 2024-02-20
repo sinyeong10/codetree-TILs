@@ -5,24 +5,25 @@ word = set()
 for elem in base:
     if "a"<=elem<='f':
         word.add(elem)
+word = list(word)
 # print(word)
 
 def check(case):
     j = 0
-    total = case[j]
+    total = case[base[0]]
     for i in range(1, len(base)):
         if base[i] == "+":
-            total += case[j+1]
+            total += case[base[i+1]]
         elif base[i] == "-":
-            total -= case[j+1]
+            total -= case[base[i+1]]
         elif base[i] == "*":
-            total *= case[j+1]
+            total *= case[base[i+1]]
         else:
             j+=1
             continue
     return total
 
-case = []
+case = {}
 def sol(idx):
     max_value = 0
     if idx == len(word):
@@ -30,9 +31,9 @@ def sol(idx):
         return max_value
     
     for i in range(1, 5):
-        case.append(i)
+        case[word[idx]] = i
         max_value = max(max_value, sol(idx+1))
-        case.pop()
+        case.pop(word[idx])
     return max_value
 
 print(sol(0))
