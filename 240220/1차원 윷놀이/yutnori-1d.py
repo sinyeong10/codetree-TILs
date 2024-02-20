@@ -2,7 +2,7 @@ from sys import stdin
 n, m, k = list(map(int, stdin.readline().split()))
 base = list(map(int, stdin.readline().split()))
 
-ans=[0 for _ in range(k)]
+ans=[1 for _ in range(k)] #시작위치가 1임!
 
 def sol(idx): #현재 볼 인덱스를 의미
     total = 0
@@ -10,6 +10,7 @@ def sol(idx): #현재 볼 인덱스를 의미
         for elem in ans:
             if elem >= m:
                 total += 1
+        # print(idx, ans, total)
         return total
     
     for i in range(k):
