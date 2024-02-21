@@ -13,4 +13,4 @@ def sol(idx):
     return min_value
 
 sol(0) = tmp
-print(tmp if tmp != float("inf") else tmp)
+print(tmp if tmp != float("inf") else -1)
