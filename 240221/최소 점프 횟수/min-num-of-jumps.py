@@ -11,6 +11,6 @@ def sol(idx):
     for i in range(1, min(base[idx]+1, n-idx)):
         min_value = min(min_value, sol(idx+i)+1)
     return min_value
-
-sol(0) = tmp
+    
+tmp = sol(0)
 print(tmp if tmp != float("inf") else -1)
