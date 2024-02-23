@@ -1,3 +1,4 @@
+#1차원 DP
 # from sys import stdin
 # n, m = list(map(int, stdin.readline().split()))
 # base = list(map(int, stdin.readline().split()))
@@ -23,6 +24,8 @@
 #     return "Yes" if dp[m] == 1 else "No"
 
 # print(sol())
+
+#2차원 DP
 from sys import stdin
 n, m = list(map(int, stdin.readline().split()))
 base = [0]+list(map(int, stdin.readline().split())) #dp의 정의상 고르지 않았을 때의 값이 필요!
