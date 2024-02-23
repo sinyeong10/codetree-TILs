@@ -28,7 +28,7 @@ n, m = list(map(int, stdin.readline().split()))
 base = [0]+list(map(int, stdin.readline().split())) #dp의 정의상 고르지 않았을 때의 값이 필요!
 
 #dp[i][j] : 지금까지 i번째까지 고려시 고른 수의 합인 j를 만드는 것이 가능!
-dp[[False]*(m+1) for _ in range(n)]
+dp=[[False]*(m+1) for _ in range(n)]
 dp[0][0] = True #아무것도 없이 0 가능!
 
 for i in range(1, n+1):
