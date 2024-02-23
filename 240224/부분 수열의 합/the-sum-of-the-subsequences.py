@@ -3,7 +3,7 @@ from sys import stdin
 n, m = list(map(int, stdin.readline().split()))
 base = list(map(int, stdin.readline().split()))
 
-1대신 True, False로 정의하면 ==을 하지 않아도 됨!
+#1대신 True, False로 정의하면 ==을 하지 않아도 됨!
 dp = [-1]*(m+1)
 dp[0] = 1
 
