@@ -44,4 +44,4 @@ for i in range(1, n+1):
         if dp[i-1][j]:
             dp[i][j] = True
 
-print("Yes", if dp[n][m] else "No")
+print("Yes" if dp[n][m] else "No")
