@@ -1,39 +1,18 @@
 from sys import stdin
 n = int(stdin.readline())
 base = list(map(int, stdin.readline().split()))
-base.sort()
-from collections import deque
-A = deque()
-B = deque()
-total_A = 0
-total_B = 0
-for elem in base:
-    if total_A > total_B:
-        total_B+=elem
-        B.append(elem)
-    else:
-        total_A+=elem
-        A.append(elem)
-# print(A,B,total_A,total_B)
+total = sum(base)
+#A가 i이면 total-i는 B이고 abs(total-2*i)가 차이임
 
-standard = abs(total_A-total_B)
-while True:
-    if total_A-total_B < 0: #B가 더 큼
-        elem = B.popleft()
-        total_A += elem
-        total_B -= elem
-        A.append(elem)
-    elif total_B-total_A < 0: #B가 더 큼
-        elem = A.popleft()
-        total_A -= elem
-        total_B += elem
-        B.append(elem)
-    else:
+dp = [False]*(total//2+1) #0~total//2까지 봄, 작은 부분으로 i를 정의! total-i-i가 차이가 됨!
+dp[0] = True
+for elem in base:
+    for j in range(elem, total//2+1): #좌측 기준!, 항상 j는 elem 이상임!
+        if dp[j-elem]:
+            dp[j] = True
+# print(dp)
+
+for tmp in range(total//2, -1, -1): #total~0
+    if dp[tmp]:
+        print(total-tmp-tmp)
         break
-    tmp = abs(total_A-total_B)
-    if tmp <= standard:
-        standard = tmp
-    else: #최솟값을 옮겨 tmp가 더 작아짐
-        break
-# print(A,B,total_A,total_B)
-print(standard)
