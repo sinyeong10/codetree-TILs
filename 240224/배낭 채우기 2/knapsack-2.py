@@ -10,4 +10,4 @@ for w, v in jewelry: #순차적으로 보석 보는중
     for j in range(1, m+1):
         if j >= w and dp[j-w] != -1: #i번째 보석의 무게
             dp[j] = max(dp[j], dp[j-w]+v)
-print(max(dp))
+print(dp[-1])
