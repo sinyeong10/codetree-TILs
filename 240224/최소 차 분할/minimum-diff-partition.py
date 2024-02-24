@@ -16,3 +16,5 @@ for tmp in range(total//2, -1, -1): #total~0
     if dp[tmp]:
         print(total-tmp-tmp)
         break
+
+#2차원 DP로 풀면 dp[i][j] : 지금까지 i번째까지 고려시 고른 수의 합인 j를 만드는 것이 가능!으로 정의할 수 있다.
