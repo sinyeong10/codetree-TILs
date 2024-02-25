@@ -44,7 +44,7 @@ total = sum(base)
 #dp[i][j] : i번째 수까지 고려했을 때 그룹 A합 - 그룹 B합 (항상 그룹 A가 크게 하는 건 힘듦, -의 경우가 생략되 버림
 #OFFSET으로 -도 처리!
 OFFSET = total
-dp = [[float("-inf")]*(total*2+1) for _ in range(n+1)]
+dp = [[float("-inf")]*(total*2+1) for _ in range(n+1)] #A의 최댓값을 구하려 함, 따라서 값이 결정되지 않음을 float("-inf")로 정의
 dp[0][OFFSET] = 0
 # print(len(dp), len(dp[0]), len(dp[0][0])) #n+1*total+1*2
 
