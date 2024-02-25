@@ -150,7 +150,6 @@
 # print(dp[-1][OFFSET])
 
 #로직을 다르게 잡음!
-#마지막 값이 C그룹에 가는 경우에 반례가 존재 ㅠ
 n = int(input())
 arr = [0]+list(map(int, input().split()))
 m = sum(arr)
@@ -170,6 +169,8 @@ for i in range(1, n+1):
             dp[i][j] += 1
     # print(arr[i], dp[i])
 
+#마지막 값이 C그룹에 가는 경우에 반례가 존재 ㅠ
+#따라서 이전 상태들도 봐서 가능한한 큰 경우를 선택!
 result = 0
 for i in range(n,-1,-1):
     for j in range(m, -1, -1):
