@@ -58,7 +58,7 @@ for i in range(1,n+1):
         if dp[i-1][j] != float("-inf"):
             dp[i][j] = max(dp[i][j], dp[i-1][j])
 
-    for j in range(total*2+1):
+    # for j in range(total*2+1): #좌측으로 체크할 때 정방향으로 하지 않아도 됨! 모두 i-1을 기준으로 처리하기 때문!
         #좌측으로 체크, A에 추가되는 경우!
         if j >= elem and dp[i-1][j-elem] != float("-inf"):
             # print("왼", j-OFFSET, elem, dp[i-1][j-elem])
