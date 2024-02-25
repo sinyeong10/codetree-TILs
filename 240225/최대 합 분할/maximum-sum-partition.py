@@ -82,37 +82,66 @@
 
 
 #해설보다 2배 빠름
-# 선택한 수를 A, B, C 중 어디 그룹에 넣을지 생각한다
-# j = A-B
-# j+2 = A에 2를 추가한 것 이고, j-2 = B에 2를 추가 한것이다
-# j에 변화가 없으면 C에 추가
-# DP[i][j] = DP[i-1][j-a](A)+a, DP[i-1][j+a](B), DP[i-1][j](C)
-# DP[i][j] 는 A의 합이다
+# # 선택한 수를 A, B, C 중 어디 그룹에 넣을지 생각한다
+# # j = A-B
+# # j+2 = A에 2를 추가한 것 이고, j-2 = B에 2를 추가 한것이다
+# # j에 변화가 없으면 C에 추가
+# # DP[i][j] = DP[i-1][j-a](A)+a, DP[i-1][j+a](B), DP[i-1][j](C)
+# # DP[i][j] 는 A의 합이다
 
+# n = int(input())
+# num = [0] + list(map(int, input().split()))
+# max_sum = sum(num)
+# dp = [[-int(2e9)] * (max_sum * 2) for _ in range(n + 1)]
+# dp[0][0] = 0
+
+# for i in range(1, n + 1):
+#     a = num[i]
+#     for j in range(-max_sum, 0):
+#         if j - a >= -max_sum:
+#             dp[i][j] = max(dp[i][j], dp[i - 1][j - a] + a)
+
+#         if j + a <= max_sum:
+#             dp[i][j] = max(dp[i][j], dp[i - 1][j + a])
+
+#         dp[i][j] = max(dp[i][j], dp[i - 1][j])
+
+#     for j in range(max_sum + 1):
+#         if j - a >= -max_sum:
+#             dp[i][j] = max(dp[i][j], dp[i - 1][j - a] + a)
+
+#         if j + a <= max_sum:
+#             dp[i][j] = max(dp[i][j], dp[i - 1][j + a])
+
+#         dp[i][j] = max(dp[i][j], dp[i - 1][j])
+
+# print(dp[-1][0])
+
+#앞의 코드보다 2배 빠름
 n = int(input())
-num = [0] + list(map(int, input().split()))
-max_sum = sum(num)
-dp = [[-int(2e9)] * (max_sum * 2) for _ in range(n + 1)]
-dp[0][0] = 0
+arr = [0]+list(map(int, input().split()))
+m = sum(arr)
 
-for i in range(1, n + 1):
-    a = num[i]
-    for j in range(-max_sum, 0):
-        if j - a >= -max_sum:
-            dp[i][j] = max(dp[i][j], dp[i - 1][j - a] + a)
+# 가능한 합의 경우를 다 구한다
+# 해당 합의 1/2도 존재하는지 알아본다 
+# 존재한다면, 그 max 값이 정답.
 
-        if j + a <= max_sum:
-            dp[i][j] = max(dp[i][j], dp[i - 1][j + a])
+dp = [[0]*(m+1) for _ in range(n+1)]
+dp[0][0] = 1
 
-        dp[i][j] = max(dp[i][j], dp[i - 1][j])
+for i in range(1, n+1):
+    for j in range(m+1):
+        if j-arr[i]>=0 and dp[i-1][j-arr[i]]>0:
+            dp[i][j] += 1
+        if dp[i-1][j]>0:
+            dp[i][j] += 1
+    # print(arr[i], dp[i])
 
-    for j in range(max_sum + 1):
-        if j - a >= -max_sum:
-            dp[i][j] = max(dp[i][j], dp[i - 1][j - a] + a)
+result = 0
+for i in range(m, -1, -1):
+    if i%2==0 and dp[n][i]>0 and dp[n][i//2]>1:
+        result = i//2
+        # print(i, i//2)
+        break
 
-        if j + a <= max_sum:
-            dp[i][j] = max(dp[i][j], dp[i - 1][j + a])
-
-        dp[i][j] = max(dp[i][j], dp[i - 1][j])
-
-print(dp[-1][0])
+print(result)
