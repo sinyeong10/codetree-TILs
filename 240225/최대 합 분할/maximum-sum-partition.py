@@ -80,68 +80,39 @@
 # #     print()
 # # print(dp[-1], OFFSET, dp[-1][OFFSET])
 
-import sys
 
-INT_MIN = -sys.maxsize
-OFFSET = 100000
+#해설보다 2배 빠름
+# 선택한 수를 A, B, C 중 어디 그룹에 넣을지 생각한다
+# j = A-B
+# j+2 = A에 2를 추가한 것 이고, j-2 = B에 2를 추가 한것이다
+# j에 변화가 없으면 C에 추가
+# DP[i][j] = DP[i-1][j-a](A)+a, DP[i-1][j+a](B), DP[i-1][j](C)
+# DP[i][j] 는 A의 합이다
 
-# 변수 선언 및 입력:
 n = int(input())
-arr = [0] + list(map(int, input().split()))
+num = [0] + list(map(int, input().split()))
+max_sum = sum(num)
+dp = [[-int(2e9)] * (max_sum * 2) for _ in range(n + 1)]
+dp[0][0] = 0
 
-# 만들 수 있는 최대 합을 계산합니다.
-m = sum(arr)
-
-# dp[i][j] : i번째 수까지 고려헀을 떄
-#            그룹 A 합 - 그룹 B 합을 j라 했을 때
-#            만들 수 있는 최대 그룹 A의 합
-dp = [
-    [0] * (m + 1 + OFFSET)
-    for _ in range(n + 1)
-]
-
-
-def initialize():
-    # 최대를 구하는 문제이므로
-    # 초기값을 INT_MIN으로 넣어줍니다.
-    for i in range(n + 1):
-        for j in range(-m, m + 1):
-            dp[i][j + OFFSET] = INT_MIN
-
-    # 초기 조건은
-    # 아직 아무런 수도 고른적이 없는 경우이므로 
-    # 0번째 수까지 고려하여
-    # 그룹 A 합 - 그룹 B 합이 0이고 
-    # 그룹 A의 합이 0인 경우에 대한 정보 입니다.
-    dp[0][0 + OFFSET] = 0
-
-
-def update(i, j, prev_i, prev_j, val):
-    # 불가능한 경우 패스합니다.
-    if prev_j < -m or prev_j > m or dp[prev_i][prev_j + OFFSET] == INT_MIN:
-        return
-    
-    dp[i][j + OFFSET] = max(dp[i][j + OFFSET], dp[prev_i][prev_j + OFFSET] + val)
-
-
-initialize()
-
-# 점화식에 따라 값을 채워줍니다.
 for i in range(1, n + 1):
-    for j in range(-m, m + 1):
-        # Case 1. 그룹 A에 i번째 원소를 추가하여 그룹A-그룹B가 j가 된 경우
-        #         dp[i - 1][j - arr[i]] + arr[i] -> dp[i][j]
-        update(i, j, i - 1, j - arr[i], arr[i])
+    a = num[i]
+    for j in range(-max_sum, 0):
+        if j - a >= -max_sum:
+            dp[i][j] = max(dp[i][j], dp[i - 1][j - a] + a)
 
-        # Case 2. 그룹 B에 i번째 원소를 추가하여 그룹A-그룹B가 j가 된 경우
-        #         dp[i - 1][j + arr[i]] -> dp[i][j]
-        update(i, j, i - 1, j + arr[i], 0)
+        if j + a <= max_sum:
+            dp[i][j] = max(dp[i][j], dp[i - 1][j + a])
 
-        # Case 3. 그룹 C에 i번째 원소를 추가하여 그룹A-그룹B가 j가 된 경우
-        #         dp[i - 1][j] -> dp[i][j]
-        update(i, j, i  - 1, j, 0)
+        dp[i][j] = max(dp[i][j], dp[i - 1][j])
 
-# n개의 수를 고려하여
-# 그룹A-그룹B가 0이 된 경우 중
-# 가능한 그룹A 합의 최대값이 답이 됩니다.
-print(dp[n][0 + OFFSET])
+    for j in range(max_sum + 1):
+        if j - a >= -max_sum:
+            dp[i][j] = max(dp[i][j], dp[i - 1][j - a] + a)
+
+        if j + a <= max_sum:
+            dp[i][j] = max(dp[i][j], dp[i - 1][j + a])
+
+        dp[i][j] = max(dp[i][j], dp[i - 1][j])
+
+print(dp[-1][0])
