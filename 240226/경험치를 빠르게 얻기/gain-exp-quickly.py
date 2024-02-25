@@ -11,6 +11,7 @@ def sol():
     if total < m:
         return -1
 
+    #경험치량이 아니라 시간을 기준으로 하면 값의 범위가 더 감소!
     import sys
     value = sys.maxsize
     dp = [value]*(total+1)
