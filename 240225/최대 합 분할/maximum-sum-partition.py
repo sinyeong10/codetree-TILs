@@ -151,16 +151,19 @@ n = int(stdin.readline())
 base = [0]+list(map(int, stdin.readline().split()))
 total = sum(base)
 OFFSET = total
-dp = [[float("-inf")]*(total*2+1) for _ in range(n+1)]
+
+value = -sys.maxsize
+
+dp = [[value]*(total*2+1) for _ in range(n+1)]
 dp[0][OFFSET] = 0
 for i in range(1,n+1):
     elem = base[i]
     for j in range(total*2+1):
-        if dp[i-1][j] != float("-inf"):
+        if dp[i-1][j] != value:
             dp[i][j] = max(dp[i][j], dp[i-1][j])
-        if j >= elem and dp[i-1][j-elem] != float("-inf"):
+        if j >= elem and dp[i-1][j-elem] != value:
             dp[i][j] = max(dp[i][j], dp[i-1][j-elem]+elem)
-        if j+elem <= total*2 and dp[i-1][j+elem] != float("-inf"):
+        if j+elem <= total*2 and dp[i-1][j+elem] != value:
             dp[i][j] = max(dp[i][j], dp[i-1][j+elem])
 
 print(dp[-1][OFFSET])
