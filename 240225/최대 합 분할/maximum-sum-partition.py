@@ -152,6 +152,7 @@ base = [0]+list(map(int, stdin.readline().split()))
 total = sum(base)
 OFFSET = total
 
+#DP의 초기값을 value라고 했을때 뭘로 잡는지에 따라 차이가 존재!!
 # value = float("-inf") #2035ms
 # value = -int(2e9) #702ms
 import sys
