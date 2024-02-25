@@ -118,30 +118,49 @@
 # print(dp[-1][0])
 
 #앞의 코드보다 2배 빠름
-n = int(input())
-arr = [0]+list(map(int, input().split()))
-m = sum(arr)
+# n = int(input())
+# arr = [0]+list(map(int, input().split()))
+# m = sum(arr)
 
-# 가능한 합의 경우를 다 구한다
-# 해당 합의 1/2도 존재하는지 알아본다 
-# 존재한다면, 그 max 값이 정답.
+# # 가능한 합의 경우를 다 구한다
+# # 해당 합의 1/2도 존재하는지 알아본다 
+# # 존재한다면, 그 max 값이 정답.
 
-dp = [[0]*(m+1) for _ in range(n+1)]
-dp[0][0] = 1
+# dp = [[0]*(m+1) for _ in range(n+1)]
+# dp[0][0] = 1
 
-for i in range(1, n+1):
-    for j in range(m+1):
-        if j-arr[i]>=0 and dp[i-1][j-arr[i]]>0:
-            dp[i][j] += 1
-        if dp[i-1][j]>0:
-            dp[i][j] += 1
-    # print(arr[i], dp[i])
+# for i in range(1, n+1):
+#     for j in range(m+1):
+#         if j-arr[i]>=0 and dp[i-1][j-arr[i]]>0:
+#             dp[i][j] += 1
+#         if dp[i-1][j]>0:
+#             dp[i][j] += 1
+#     # print(arr[i], dp[i])
 
-result = 0
-for i in range(m, -1, -1):
-    if i%2==0 and dp[n][i]>0 and dp[n][i//2]>1:
-        result = i//2
-        # print(i, i//2)
-        break
+# result = 0
+# for i in range(m, -1, -1):
+#     if i%2==0 and dp[n][i]>0 and dp[n][i//2]>1:
+#         result = i//2
+#         # print(i, i//2)
+#         break
 
-print(result)
+# print(result)
+
+from sys import stdin
+n = int(stdin.readline())
+base = [0]+list(map(int, stdin.readline().split()))
+total = sum(base)
+OFFSET = total
+dp = [[float("-inf")]*(total*2+1) for _ in range(n+1)]
+dp[0][OFFSET] = 0
+for i in range(1,n+1):
+    elem = base[i]
+    for j in range(total*2+1):
+        if dp[i-1][j] != float("-inf"):
+            dp[i][j] = max(dp[i][j], dp[i-1][j])
+        if j >= elem and dp[i-1][j-elem] != float("-inf"):
+            dp[i][j] = max(dp[i][j], dp[i-1][j-elem]+elem)
+        if j+elem <= total*2 and dp[i-1][j+elem] != float("-inf"):
+            dp[i][j] = max(dp[i][j], dp[i-1][j+elem])
+
+print(dp[-1][OFFSET])
