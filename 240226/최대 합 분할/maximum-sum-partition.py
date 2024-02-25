@@ -168,13 +168,14 @@ for i in range(1, n+1):
             dp[i][j] += 1
         if dp[i-1][j]>0: #이전에 가능한 경우!
             dp[i][j] += 1
-    print(arr[i], dp[i])
+    # print(arr[i], dp[i])
 
 result = 0
-for i in range(m, -1, -1):
-    if i%2==0 and dp[n][i]>0 and dp[n][i//2]>1: #짝수이며 해당 값이 가능하고 반인 값이 2번 이상 가능!
-        result = i//2
-        # print(i, i//2)
-        break
+for i in range(n,-1,-1):
+    for j in range(m, -1, -1):
+        if j%2==0 and dp[i][j]>0 and dp[i][j//2]>1: #짝수이며 해당 값이 가능하고 반인 값이 2번 이상 가능!
+            result = max(result, j//2)
+            # print(i, i//2)
+            break
 
 print(result)
