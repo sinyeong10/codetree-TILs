@@ -152,6 +152,7 @@ base = [0]+list(map(int, stdin.readline().split()))
 total = sum(base)
 OFFSET = total
 
+import sys
 value = -sys.maxsize
 
 dp = [[value]*(total*2+1) for _ in range(n+1)]
