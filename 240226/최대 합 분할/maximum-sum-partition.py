@@ -168,7 +168,7 @@ for i in range(1, n+1):
             dp[i][j] += 1
         if dp[i-1][j]>0: #이전에 가능한 경우!
             dp[i][j] += 1
-    # print(arr[i], dp[i])
+    print(arr[i], dp[i])
 
 result = 0
 for i in range(m, -1, -1):
