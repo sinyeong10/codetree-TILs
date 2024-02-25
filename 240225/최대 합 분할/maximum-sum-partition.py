@@ -64,7 +64,7 @@ for i in range(1,n+1):
             # print("왼", j-OFFSET, elem, dp[i-1][j-elem])
             dp[i][j] = max(dp[i][j], dp[i-1][j-elem]+elem)
 
-    for j in range(total*2+1, -1, -1):
+    # for j in range(total*2+1, -1, -1): #우측으로 체크하더라도 역순으로 하지 않아도 됨! 모두 i-1을 기반으로 하기 때문!
         #우측으로 체크, B에 추가되는 경우!
         if j+elem <= total*2 and dp[i-1][j+elem] != float("-inf"):
             # print("오", j-OFFSET, elem, dp[i-1][j+elem])
