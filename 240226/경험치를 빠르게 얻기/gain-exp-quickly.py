@@ -33,22 +33,24 @@
 
 # print(sol())
 
+
 from sys import stdin
 n,m = list(map(int, stdin.readline().split()))
 quest = [list(map(int, stdin.readline().split())) for _ in range(n)]
 
-dp = [-1]*101 #시간 기준 경험치 최대화!
+t_limit = 100*n
+dp = [-1]*(t_limit+1) #시간 기준 경험치 최대화!
 dp[0] = 0
 
 for e, t in quest:
-    for j in range(100,t-1,-1): #왼쪽 방향이므로 역순으로 중복을 제거!
+    for j in range(t_limit,t-1,-1): #왼쪽 방향이므로 역순으로 중복을 제거!
         if dp[j-t] != -1:
             dp[j] = max(dp[j], dp[j-t]+e)
     # print(e,t,dp)
 
 import sys
 min_value = sys.maxsize
-for j in range(101):
+for j in range(t_limit+1):
     if dp[j] >= m:
         min_value = min(min_value, j)
 print(min_value if min_value != sys.maxsize else -1)
