@@ -22,10 +22,12 @@ def sol():
             if dp[j-e] != value:
                 dp[j] = min(dp[j], dp[j-e]+t)
         dp[e] = min(dp[e], t)
-        # print(i, dp)
+        # print(i, e,t, dp)
     
+    min_value = value
     for k in range(m, total+1):
         if dp[k] != value:
-            return dp[k]
+            min_value = min(min_value, dp[k])
+    return min_value
 
 print(sol())
