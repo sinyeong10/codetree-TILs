@@ -152,8 +152,10 @@ base = [0]+list(map(int, stdin.readline().split()))
 total = sum(base)
 OFFSET = total
 
-import sys
-value = -sys.maxsize
+value = float("-inf")
+# import sys
+# value = -sys.maxsize
+value = -int(2e9)
 
 dp = [[value]*(total*2+1) for _ in range(n+1)]
 dp[0][OFFSET] = 0
