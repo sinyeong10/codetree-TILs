@@ -149,6 +149,7 @@
 
 # print(dp[-1][OFFSET])
 
+#최댓값으로 생각한 값이 이전상태로부터 현재 원소를 더해서 만들어진 최댓값인지, 
 #로직을 다르게 잡음!
 n = int(input())
 arr = [0]+list(map(int, input().split()))
@@ -164,10 +165,10 @@ dp[0][0] = 1
 for i in range(1, n+1):
     for j in range(m+1): #좌측기준이지만 i-1이 기준이기에 역방향으로 하지 않아도 중복발생하지 않음!
         if j-arr[i]>=0 and dp[i-1][j-arr[i]]>0: #현재 elem이 추가되어 가능한 경우!
-            dp[i][j] += 1
+            dp[i][j] += dp[i-1][j-arr[i]]
         if dp[i-1][j]>0: #이전에 가능한 경우!
-            dp[i][j] += 1
-    # print(arr[i], dp[i])
+            dp[i][j] += dp[i-1][j]
+    print(arr[i], dp[i])
 
 #마지막 값이 C그룹에 가는 경우에 반례가 존재 ㅠ
 #따라서 이전 상태들도 봐서 가능한한 큰 경우를 선택!
@@ -180,3 +181,4 @@ for i in range(n,-1,-1):
             break
 
 print(result)
+#하지만 같은 값이 1개만 있는 것을 반복해서 사용해서 반례가 발생....
