@@ -113,7 +113,7 @@ total = sum(base)
 # else:
 #     print("No")
 
-#이전 상태, 현재 상태 활용
+#이전 상태, 현재 상태만 활용
 dp = [[False]*(total+1) for _ in range(2)] #dp[i][j] : i번째 수, j는 A그룹의 총합
 dp[0][0] = True
 
