@@ -33,42 +33,60 @@ total = sum(base)
 # else:
 #     print("No")
 
+#3차원 DP 이전, 현재 상태만 처리 메모리 초과
+# dp = [[[False]*(total+1) for _ in range(total+1)] for _ in range(2)] #i까지 봐서 A의 합이 j, B의 합이 k
+# # print(len(dp), len(dp[0]), len(dp[0][0]))
+# dp[0][0][0] = True
 
-dp = [[[False]*(total+1) for _ in range(total+1)] for _ in range(2)] #i까지 봐서 A의 합이 j, B의 합이 k
-# print(len(dp), len(dp[0]), len(dp[0][0]))
-dp[0][0][0] = True
+# for idx in range(n):
+#     if idx%2 == 0:
+#         i = 1
+#     else:
+#         i = 0
 
-for idx in range(n):
-    if idx%2 == 0:
-        i = 1
-    else:
-        i = 0
-
-    for j in range(total+1):
-        for k in range(total+1):
-            if dp[i-1][j][k]:
-                dp[i][j][k] = True
+#     for j in range(total+1):
+#         for k in range(total+1):
+#             if dp[i-1][j][k]:
+#                 dp[i][j][k] = True
     
-    elem = base[idx+1]
-    #이전인 i-1에서 A그룹에 elem을 더하는 경우
-    for k in range(total+1):
-        for j in range(total+1, elem-1, -1):
-            if dp[i-1][j-elem][k]:
-                dp[i][j][k] = True
+#     elem = base[idx+1]
+#     #이전인 i-1에서 A그룹에 elem을 더하는 경우
+#     for k in range(total+1):
+#         for j in range(total+1, elem-1, -1):
+#             if dp[i-1][j-elem][k]:
+#                 dp[i][j][k] = True
 
-    #이전인 i-1에서 B그룹에 elem을 더하는 경우
-    for j in range(total+1):
-        for k in range(total+1, elem-1, -1):
-            if dp[i-1][j][k-elem]:
-                dp[i][j][k] = True
-# print(dp[-1])
+#     #이전인 i-1에서 B그룹에 elem을 더하는 경우
+#     for j in range(total+1):
+#         for k in range(total+1, elem-1, -1):
+#             if dp[i-1][j][k-elem]:
+#                 dp[i][j][k] = True
+# # print(dp[-1])
+
+# if n%2 == 0:
+#     i = 0
+# else:
+#     i = -1
+# if total%2 == 0 and dp[i][total//2][total//2]:
+#     print("Yes")
+# else:
+#     print("No")
+
+#2차원 DP
+dp = [[-1]*(total+1) for _ in range(n+1)] #dp[i][j] : i번째 수, j는 A그룹의 총합, 값은 B그룹의 총합
+dp[0][0] = 0
+
+for i in range(1, n+1):
+    elem = base[i]
+    for j in range(n): #순방향
+        if dp[i-1][j] != -1:
+            dp[i][j] = dp[i-1][j]+elem
+
+        if dp[i-1][j] != -1 and j+elem < total:
+            dp[i][j+elem] = dp[i-1][j]
 
 
-if n%2 == 0:
-    i = 0
-else:
-    i = -1
-if total%2 == 0 and dp[i][total//2][total//2]:
+if total%2 == 0 and dp[-1][total//2] == total//2:
     print("Yes")
 else:
     print("No")
