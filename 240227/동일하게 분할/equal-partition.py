@@ -78,14 +78,15 @@ dp[0][0] = 0
 
 for i in range(1, n+1):
     elem = base[i]
-    for j in range(n): #순방향
-        if dp[i-1][j] != -1:
+    for j in range(total+1): #순방향 #범위를 n으로 해서 틀림...
+        if dp[i-1][j] != -1: #B에 추가
             dp[i][j] = dp[i-1][j]+elem
 
-        if dp[i-1][j] != -1 and j+elem < total:
+        if j+elem < total and dp[i-1][j] != -1: #A에 추가
             dp[i][j+elem] = dp[i-1][j]
 
-
+# print(total)
+# print(dp)
 if total%2 == 0 and dp[-1][total//2] == total//2:
     print("Yes")
 else:
