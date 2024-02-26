@@ -94,7 +94,7 @@ total = sum(base)
 
 #간단히 total//2를 만들 수 있는 지 확인해도 됨!
 #total이 짝수이면 total//2가 되면 다른 그룹은 자동으로 total//2가 됨
-value = False
+value = -1
 dp = [[value]*(total+1) for _ in range(n+1)] #dp[i][j] : i번째 수, j는 A그룹의 총합
 dp[0][0] = True
 
