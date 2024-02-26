@@ -109,7 +109,7 @@ for i in range(1, n+1):
 
 # print(total)
 # print(dp)
-if total%2 == 0 and dp[-1][total//2]:
+if total%2 == 0 and dp[-1][total//2] != value:
     print("Yes")
 else:
     print("No")
