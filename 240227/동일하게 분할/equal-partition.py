@@ -61,8 +61,14 @@ for idx in range(n):
         for k in range(total+1, elem-1, -1):
             if dp[i-1][j][k-elem]:
                 dp[i][j][k] = True
+# print(dp[-1])
 
-if total%2 == 0 and dp[-1][total//2][total//2]:
+
+if n%2 == 0:
+    i = 0
+else:
+    i = -1
+if total%2 == 0 and dp[i][total//2][total//2]:
     print("Yes")
 else:
     print("No")
