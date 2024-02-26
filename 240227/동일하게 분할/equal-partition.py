@@ -92,6 +92,34 @@ total = sum(base)
 # else:
 #     print("No")
 
+#이전 상태, 현재 상태만 활용
+dp = [[-1]*(total+1) for _ in range(2)] #dp[i][j] : i번째 수, j는 A그룹의 총합
+dp[0][0] = 0
+
+for idx in range(1, n+1):
+    if idx%2==0:
+        i = 0
+    else:
+        i = 1
+    elem = base[idx]
+    for j in range(total+1): #순방향
+        if dp[i-1][j] != -1: #B에 추가
+            dp[i][j] = dp[i-1][j]+elem
+
+        if j+elem < total and dp[i-1][j] != -1: #A에 추가
+            dp[i][j+elem] = dp[i-1][j]
+
+# print(total)
+# print(dp)
+if n%2==0:
+    i = 0
+else:
+    i = 1
+if total%2 == 0 and dp[i][total//2] == total//2:
+    print("Yes")
+else:
+    print("No")
+
 # #간단히 total//2를 만들 수 있는 지 확인해도 됨!
 # #total이 짝수이면 total//2가 되면 다른 그룹은 자동으로 total//2가 됨
 # dp = [[False]*(total+1) for _ in range(n+1)] #dp[i][j] : i번째 수, j는 A그룹의 총합
@@ -113,30 +141,30 @@ total = sum(base)
 # else:
 #     print("No")
 
-#이전 상태, 현재 상태만 활용
-dp = [[False]*(total+1) for _ in range(2)] #dp[i][j] : i번째 수, j는 A그룹의 총합
-dp[0][0] = True
+# #이전 상태, 현재 상태만 활용
+# dp = [[False]*(total+1) for _ in range(2)] #dp[i][j] : i번째 수, j는 A그룹의 총합
+# dp[0][0] = True
 
-for idx in range(1, n+1):
-    if idx%2==0:
-        i = 0
-    else:
-        i = 1
-    elem = base[idx]
-    for j in range(total+1): #순방향
-        if dp[i-1][j]: #B에 추가
-            dp[i][j] = True
+# for idx in range(1, n+1):
+#     if idx%2==0:
+#         i = 0
+#     else:
+#         i = 1
+#     elem = base[idx]
+#     for j in range(total+1): #순방향
+#         if dp[i-1][j]: #B에 추가
+#             dp[i][j] = True
 
-        if j+elem < total and dp[i-1][j]: #A에 추가
-            dp[i][j+elem] = True
+#         if j+elem < total and dp[i-1][j]: #A에 추가
+#             dp[i][j+elem] = True
 
-# print(total)
-# print(dp)
-if n%2==0:
-    i = 0
-else:
-    i = 1
-if total%2 == 0 and dp[i][total//2]:
-    print("Yes")
-else:
-    print("No")
+# # print(total)
+# # print(dp)
+# if n%2==0:
+#     i = 0
+# else:
+#     i = 1
+# if total%2 == 0 and dp[i][total//2]:
+#     print("Yes")
+# else:
+#     print("No")
