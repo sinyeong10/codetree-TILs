@@ -104,7 +104,7 @@ for idx in range(1, n+1):
     elem = base[idx]
     for j in range(total+1): #순방향
         if dp[i-1][j] != -1: #B에 추가
-            dp[i][j] = dp[i-1][j]
+            dp[i][j] = dp[i-1][j]+elem
 
         if j+elem < total and dp[i-1][j] != -1: #A에 추가
             dp[i][j+elem] = dp[i-1][j]
@@ -115,7 +115,7 @@ if n%2==0:
     i = 0
 else:
     i = 1
-if total%2 == 0 and dp[i][total//2] == 0:#total//2:
+if total%2 == 0 and dp[i][total//2] == total//2:
     print("Yes")
 else:
     print("No")
