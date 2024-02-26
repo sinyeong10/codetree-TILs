@@ -168,7 +168,7 @@ for i in range(1, n+1):
             dp[i][j] += dp[i-1][j-arr[i]]
         if dp[i-1][j]>0: #이전에 가능한 경우!
             dp[i][j] += dp[i-1][j]
-    print(arr[i], dp[i])
+    # print(arr[i], dp[i])
 
 #마지막 값이 C그룹에 가는 경우에 반례가 존재 ㅠ
 #따라서 이전 상태들도 봐서 가능한한 큰 경우를 선택!
