@@ -93,6 +93,7 @@ total = sum(base)
 #     print("No")
 
 #이전 상태, 현재 상태만 활용
+#bool연산 비교보다 정수 연산 비교가 좀 더 빠름
 dp = [[-1]*(total+1) for _ in range(2)] #dp[i][j] : i번째 수, j는 A그룹의 총합
 dp[0][0] = 0
 
