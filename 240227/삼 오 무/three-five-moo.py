@@ -7,7 +7,7 @@ def check(num):
 import sys
 min_value = sys.maxsize
 left = 1
-right = sys.maxsize
+right = sys.maxsize #N의 범위가 아님.. N보다 클 수 밖에 없음!
 
 while left <= right:
     mid = (left+right)//2
@@ -15,7 +15,7 @@ while left <= right:
     # print(left, mid, right, count, mid-count, min_value)
     if mid-count < n: #mid-count는 숫자의 갯수
         left = mid+1 #이게 n보다 작으므로 mid는 우측으로 더 크게 봐야함!
-    elif mid-count >= n:
+    else:#if mid-count >= n:
         right = mid-1
         min_value = min(min_value, mid) #check(mid)에서 mid의 여러 값이 같은 결과로 나올 수 있음
 print(min_value)
