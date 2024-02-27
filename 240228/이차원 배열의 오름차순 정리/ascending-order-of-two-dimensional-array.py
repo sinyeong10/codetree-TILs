@@ -59,7 +59,7 @@ while left<=right:
     mid = (left+right)//2
     key = check(mid)
     # print(mid, key)
-    if key <= k:
+    if key < k:
         left = mid + 1
     elif key >= k:
         right = mid - 1
