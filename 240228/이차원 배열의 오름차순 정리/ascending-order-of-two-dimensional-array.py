@@ -73,12 +73,12 @@ min_value = n*n
 while left <= right:
     mid = (left+right)//2
     cnt = 0
-    for i in range(n+1):
+    for i in range(1, n+1):
         cnt += min(mid//i, n) #각 행별로 mid보다 작은 값!
 
-    if cnt >= k: #k이상인 값으로 구간이 잡힘, 이제 좌측에 더 있을 수 도 있어서 최솟값으로 처리, 그래야 배열에서 없는 mid는 제외됨!
+    if cnt >= k: #k이상인 값으로 구간이 잡힘
         right = mid-1
-        min_value = min(min_value, mid)
+        min_value = min(min_value, mid) #배열에서 없는 mid는 제외됨!
     else:
         left = mid + 1
 
