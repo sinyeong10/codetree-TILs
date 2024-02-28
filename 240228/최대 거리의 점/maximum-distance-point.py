@@ -1,7 +1,7 @@
 from sys import stdin
 n, m = list(map(int, stdin.readline().split()))
 point = [int(stdin.readline()) for _ in range(n)]
-
+point.sort()
 import sys
 def check(dist): #dist가 최소거리일 때 m개이상이 가능
     start = -sys.maxsize
