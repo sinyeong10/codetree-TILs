@@ -12,18 +12,17 @@ def check(dist):
             start = s
             count += 1
 
-
         # #만약 앞의 if문이 안걸렸다면 현재 선분의 시작위치에서 시작 못함!
         # while start+dist <= l: #최대 l까지 dist씩 계속 이동!
         #     start += dist
         #     count += 1
-
         tmp = (l-start)//dist
         if tmp > 0:
             count += tmp
             start += tmp*dist
-    # print(count)
-    return count >= n
+        if count >= n:
+            return True
+    return False
 
 left = 1
 import sys
