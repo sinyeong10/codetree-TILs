@@ -21,12 +21,12 @@ def check(dist):
 left = 1
 import sys
 right = sys.maxsize
-min_value = sys.maxsize
+max_value = 0
 while left<=right:
     mid = (left+right)//2
     if check(mid): #n개 이상이므로 dist를 더 크게 해서 다시 체크!
-        min_value = min(min_value, mid)
+        max_value = max(max_value, mid)
         left = mid+1
     else:
         right = mid-1
-print(min_value)
+print(max_value)
