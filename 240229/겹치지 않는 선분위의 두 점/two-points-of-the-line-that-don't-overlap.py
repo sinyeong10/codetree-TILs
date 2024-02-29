@@ -4,9 +4,12 @@ point = [tuple(map(int, stdin.readline().split())) for _ in range(m)]
 point.sort() #겹치지 않아서 처음 기준 정렬하면 충분!
 
 def check(dist):
-    count = 0
-    start = -dist #dist를 더해도 처음 값인 0이하가 되기 위해!
+    count = 1
+    # start = -dist #dist를 더해도 처음 값인 0이하가 되기 위해!
+    start = point[0][0] #처음을 이걸로 해서 선택된 후에 시작!
     for s,l in point:
+        if start + dist > l: #현재 선분내에서는 불가능!
+            continue
         if start + dist <= s: #이전 선분의 마지막 점의 위치로부터 dist의 거리가 현재 선분의 처음 위치 이하인 경우!
             start = s
             count += 1
