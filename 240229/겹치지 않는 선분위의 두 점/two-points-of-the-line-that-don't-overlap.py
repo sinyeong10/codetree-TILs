@@ -16,10 +16,10 @@ def check(dist):
         # while start+dist <= l: #최대 l까지 dist씩 계속 이동!
         #     start += dist
         #     count += 1
-        tmp = (l-start)//dist
-        if tmp > 0:
-            count += tmp
-            start += tmp*dist
+        tmp = max((l-start)//dist, 0)
+        # if tmp > 0:
+        count += tmp
+        start += tmp*dist
         if count >= n:
             return True
     return False
