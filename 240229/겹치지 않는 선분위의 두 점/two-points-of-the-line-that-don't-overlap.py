@@ -1,6 +1,6 @@
 from sys import stdin
 n, m = list(map(int, stdin.readline().split()))
-point = [list(map(int, stdin.readline().split())) for _ in range(m)]
+point = [tuple(map(int, stdin.readline().split())) for _ in range(m)]
 point.sort() #겹치지 않아서 처음 기준 정렬하면 충분!
 
 def check(dist):
@@ -16,10 +16,10 @@ def check(dist):
         # while start+dist <= l: #최대 l까지 dist씩 계속 이동!
         #     start += dist
         #     count += 1
-        tmp = max((l-start)//dist, 0)
-        # if tmp > 0:
-        count += tmp
-        start += tmp*dist
+        tmp = (l-start)//dist
+        if tmp > 0:
+            count += tmp
+            start += tmp*dist
         if count >= n:
             return True
     return False
