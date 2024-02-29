@@ -6,8 +6,7 @@ point.sort() #겹치지 않아서 처음 기준 정렬하면 충분!
 def check(dist):
     count = 0
     start = -dist #dist를 더해도 처음 값인 0이하가 되기 위해!
-    for i in range(m):
-        s,l = point[i]
+    for s,l in point:
         if start + dist <= s: #이전 선분의 마지막 점의 위치로부터 dist의 거리가 현재 선분의 처음 위치 이하인 경우!
             start = s
             count += 1
