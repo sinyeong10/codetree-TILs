@@ -21,7 +21,7 @@ def check(dist):
 left = 1
 import sys
 right = sys.maxsize
-max_value = 0
+max_value = 0 #n개인 여러 가능한 dist중 가장 큰 값!
 while left<=right:
     mid = (left+right)//2
     if check(mid): #n개 이상이므로 dist를 더 크게 해서 다시 체크!
