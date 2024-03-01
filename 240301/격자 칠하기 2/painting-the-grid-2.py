@@ -36,7 +36,8 @@ def check(D):
     ans = 0
     for i in range(n):
         for j in range(n):
-            ans = max(ans, bfs(i,j,D))
+            if not visited[i][j]:
+                ans = max(ans, bfs(i,j,D))
     return ans >= (n*n+1)//2 #반올림 처리!
 
 left = 1
