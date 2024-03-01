@@ -16,6 +16,8 @@ def bfs(i, j, D):
     visited[i][j] = True
 
     dx, dy =[0,0,-1,1], [-1,1,0,0]
+    
+    total = 1
 
     while q:
         x, y = q.popleft()
@@ -23,13 +25,8 @@ def bfs(i, j, D):
             next_x, next_y = x+dxs, y+dys
             if in_range(next_x, next_y) and not visited[next_x][next_y] and abs(base_2d[x][y]-base_2d[next_x][next_y])<=D: #범위안이고 방문을 아직 안한 경우이며 현재 값보다 D이하로 차이나야함!
                 q.append((next_x, next_y))
-                visited[next_x][next_y] = True
-    
-    total = 0
-    for i in range(n):
-        for j in range(n):
-            if visited[i][j]:
                 total += 1
+                visited[next_x][next_y] = True
     return total
 
 def check(D):
