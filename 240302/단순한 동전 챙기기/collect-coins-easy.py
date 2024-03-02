@@ -59,12 +59,13 @@ def solve(idx, cnt): #이전에 idx까지 cnt개를 봤음
         else:
             total = 0
         # print(ans, total)
-        return total #가능한 경우는 지금까지 누적되어 계산된 값 반환
+        return total
         
     tmp = sys.maxsize
     for i in range(idx+1, 11): #이전보다 커지는 방향으로만 가능!
         if coin[i] == []: #없는 숫자는 패스
             continue
+        #각 경우에 따라 들어가는 cost를 가산해줌!
         #i를 선택하지 않는 경우
         tmp = min(tmp, solve(i, cnt)+0)
         #i를 선택한 경우
