@@ -29,8 +29,8 @@ import sys
 ans = [0]
 def solve(idx, cnt, total): #이전에 idx까지 cnt개를 봤고 현재까지의 이동 횟수는 total임!
     # print(idx, cnt, total)
-    if idx == 10:
-        if cnt < 5: #처음과 마지막을 포함하여 최소 3개이상의 동전이 선택되지 않아서 최댓값 반환!
+    if idx == 10: #여기서 10이 선택안된 경우를 빼먹었음...
+        if ans[-1] != 10 or cnt < 5: #처음과 마지막을 포함하여 최소 3개이상의 동전이 선택되지 않아서 최댓값 반환!
             total = sys.maxsize
         # print(ans, total)
         return total #가능한 경우는 지금까지 누적되어 계산된 값 반환
