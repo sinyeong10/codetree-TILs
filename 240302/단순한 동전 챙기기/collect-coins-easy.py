@@ -27,11 +27,37 @@ def diff(A,B):
 
 import sys
 ans = [0]
-def solve(idx, cnt, total): #이전에 idx까지 cnt개를 봤고 현재까지의 이동 횟수는 total임!
-    # print(idx, cnt, total)
+# #깊게 들어갈수록 total에 가산하여 끝 찍고 돌아옴!
+# def solve(idx, cnt, total): #이전에 idx까지 cnt개를 봤고 현재까지의 이동 횟수는 total임!
+#     # print(idx, cnt, total)
+#     if idx == 10: #여기서 10이 선택안된 경우를 빼먹었음...
+#         if ans[-1] != 10 or cnt < 5: #처음과 마지막을 포함하여 최소 3개이상의 동전이 선택되지 않아서 최댓값 반환!
+#             total = sys.maxsize
+#         # print(ans, total)
+#         return total #가능한 경우는 지금까지 누적되어 계산된 값 반환
+        
+#     tmp = sys.maxsize
+#     for i in range(idx+1, 11): #이전보다 커지는 방향으로만 가능!
+#         if coin[i] == []: #없는 숫자는 패스
+#             continue
+#         #i를 선택하지 않는 경우
+#         tmp = min(tmp, solve(i, cnt, total))
+#         #i를 선택한 경우
+#         ans.append(i)
+#         tmp = min(tmp, solve(i, cnt+1, total+diff(coin[ans[-2]], coin[i])))
+#         ans.pop()
+#     return tmp
+
+# move = solve(0, 1, 0)
+# print(move if move != sys.maxsize else -1)
+
+
+def solve(idx, cnt): #이전에 idx까지 cnt개를 봤음
     if idx == 10: #여기서 10이 선택안된 경우를 빼먹었음...
         if ans[-1] != 10 or cnt < 5: #처음과 마지막을 포함하여 최소 3개이상의 동전이 선택되지 않아서 최댓값 반환!
             total = sys.maxsize
+        else:
+            total = 0
         # print(ans, total)
         return total #가능한 경우는 지금까지 누적되어 계산된 값 반환
         
@@ -40,12 +66,11 @@ def solve(idx, cnt, total): #이전에 idx까지 cnt개를 봤고 현재까지�
         if coin[i] == []: #없는 숫자는 패스
             continue
         #i를 선택하지 않는 경우
-        tmp = min(tmp, solve(i, cnt, total))
+        tmp = min(tmp, solve(i, cnt)+0)
         #i를 선택한 경우
         ans.append(i)
-        tmp = min(tmp, solve(i, cnt+1, total+diff(coin[ans[-2]], coin[i])))
+        tmp = min(tmp, solve(i, cnt+1)+diff(coin[ans[-2]], coin[i]))
         ans.pop()
     return tmp
 
-move = solve(0, 1, 0)
-print(move if move != sys.maxsize else -1)
+print(solve(0, 1))
