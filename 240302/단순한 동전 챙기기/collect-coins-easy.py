@@ -73,4 +73,5 @@ def solve(idx, cnt): #이전에 idx까지 cnt개를 봤음
         ans.pop()
     return tmp
 
-print(solve(0, 1))
+move = solve(0, 1)
+print(move if move != sys.maxsize else -1)
