@@ -44,7 +44,7 @@ def check(D):
                     return True #반올림 처리!
     return False
 
-left = 1
+left = 0
 right = 1000000
 min_value = 1000000
 while left <= right:
