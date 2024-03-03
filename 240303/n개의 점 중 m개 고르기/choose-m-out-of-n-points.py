@@ -7,9 +7,10 @@ ans = []
 def check(ans):
     max_value = 0
     for i in range(m):
-        for j in range(i+1, m):
-            x1,y1 = point[i]
-            x2,y2 = point[j]
+        for j in range(i+1, m): #이 인덱스는 ans에 대한 인덱스, ans의 값은 point의 인덱스임!
+            x1,y1 = point[ans[i]]
+            x2,y2 = point[ans[j]]
+            # print(i,j, (x1-x2)*(x1-x2)+(y1-y2)*(y1-y2))
             max_value = max(max_value, (x1-x2)*(x1-x2)+(y1-y2)*(y1-y2))
     return max_value
 
@@ -19,6 +20,7 @@ def sol(idx, cnt): #현재 idx를 보며 cnt개를 선택
     if idx == n: #끝까지 다 본 상태
         if cnt == m:
             min_value = check(ans)
+            # print(ans, min_value)
         return min_value
     
     min_value = min(min_value, sol(idx+1, cnt))
