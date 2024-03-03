@@ -12,12 +12,14 @@ import sys
 def sol(cnt):
     cost = sys.maxsize
     if cnt == n:
-        tmp = 0
-        for i in range(n-1):
-            tmp+=base_2d[ans[i]][ans[i+1]]
-        tmp+=base_2d[ans[-1]][0]
-        # print(ans, tmp)
-        return tmp
+        if base_2d[ans[-1]][0] != 0: #마지막에 돌아갈 수 있는 경우만 계산!
+            tmp = 0
+            for i in range(n-1):
+                tmp+=base_2d[ans[i]][ans[i+1]]
+            tmp+=base_2d[ans[-1]][0]
+            # print(ans, tmp)
+            return tmp
+        return cost
     
     for i in range(n):
         if visited[i]: #이전에 간 경우는 패스
