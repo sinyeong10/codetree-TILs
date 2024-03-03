@@ -24,7 +24,7 @@ def sol(idx, cnt): #현재 idx를 보며 cnt개를 선택
         return min_value
     
     min_value = min(min_value, sol(idx+1, cnt))
-    if cnt < m: #현재 선택한 갯수가 m미만일 경우 선택
+    if cnt < m: #현재 선택한 갯수가 m미만일 경우 선택 #여기에 조건문 대신 바닥조건에서 m인 경우에 계산하여 반환하고, n인 경우는 그냥 패스하게 해서 처리 가능!
         ans.append(idx)
         min_value = min(min_value, sol(idx+1, cnt+1))
         ans.pop()
