@@ -4,7 +4,7 @@ base_2d = [list(map(int, stdin.readline().split())) for _ in range(n)]
 visited = [False for _ in range(n)]
 
 ans = []
-def sol(cnt):
+def sol(cnt): #현재 cnt개 고름
     tmp = 0
     if cnt == n:
         for q in range(n):
@@ -14,7 +14,7 @@ def sol(cnt):
         # print(ans, tmp)
         return tmp
     
-    for j in range(n):
+    for j in range(n): #열이 정해지면 cnt행에서 반드시 하나를 골라야함!
         if visited[j]:
             continue
         ans.append((cnt, j))
