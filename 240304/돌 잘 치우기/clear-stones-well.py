@@ -44,25 +44,27 @@ for i in range(n):
     for j in range(n):
         if base_2d[i][j] == 1:
             stone.append((i,j))
+# print(stone)
 
 ans = []
 def sol(idx, cnt): #현재 idx번 돌을보며 cnt갯수를 선택!
     tmp = 0
     if cnt == m: #m개의 돌이 선택되면 삭제 후 탐색하고 복구!
         for i in range(m): #돌 삭제
-            x,y = stone[i]
+            x,y = stone[ans[i]] #ans의 값이 stone의 인덱스!
             base_2d[x][y] = 0
+            # print(i,x,y)
         tmp = bfs()
         # print(ans, idx, cnt, tmp)
         for i in range(m): #돌 복구
-            x,y = stone[i]
+            x,y = stone[ans[i]]
             base_2d[x][y] = 1
         return tmp
     
     if idx == len(stone): #cnt가 m이 아닌데 스톤을 다 봄
         return tmp #0반환
 
-    sol(idx+1, cnt)
+    tmp = max(tmp, sol(idx+1, cnt))
     ans.append(idx)
     tmp = max(tmp, sol(idx+1, cnt+1))
     ans.pop()
