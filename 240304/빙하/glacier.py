@@ -48,8 +48,8 @@ def in_range(i,j): #i행 j열
 
 from collections import deque
 def bfs():
-    visited = [[False]*m for _ in range(n)] #매번 방문 배열을 갱신!
-    #매번 방문 배열을 갱신하는 대신 이번 턴 빙하를 모두 시작 지에 넣으면 갱신 없이도 가능!, 모든 빙하를 시작점에 넣었기에 visited 배열한 것이 초기화하는 의미가 됨!
+    visited = [[False]*m for _ in range(n)]
+    #매번 방문 배열을 갱신하는 대신 이번 턴 빙하를 모두 시작지에 넣으면 갱신 없이도 가능!, 모든 빙하를 시작점에 넣었기에 visited 배열한 것이 초기화하는 의미가 됨!
     q=deque()
     #초기값으로 0,0을 줌 조건상 바깥쪽을 전부 갈 수 있음!
     q.append((0,0))
