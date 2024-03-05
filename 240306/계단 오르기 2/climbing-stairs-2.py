@@ -18,37 +18,64 @@ for i in range(2,n+1):
 #     print(*elem)
 print(max(dp[-1]))
 
-#검증
-# # from sys import stdin
-# # n = int(stdin.readline())
-# # base = list(map(int, stdin.readline().split()))
-# # print(base, sum(base))
 
-# # ans = []
-# # def sol(idx, cnt):
-# #     # print(idx, cnt)
-# #     if cnt > 3:
-# #         return
 
-# #     if ans and ans[-1] == n:
-# #         tmp = 0
-# #         for i in range(len(ans)):
-# #             tmp += base[ans[i]-1] #인덱스 단위로
-# #         print(idx, cnt, ans, tmp)
-# #         return
+# #검증
+# print(coin, sum(coin))
+# #현재 값을 넣어서 까다로움!
+# ans = []
+# def sol(idx, cnt): #현재 idx층을 이동할 것이며 cnt만큼 1번 이동
+#     # print(idx, cnt)
+#     if cnt > 3:
+#         return
+
+#     if ans and ans[-1] == n:
+#         tmp = 0
+#         for i in range(len(ans)):
+#             tmp += coin[ans[i]-1] #인덱스 단위로
+#         print(idx, cnt, ans, tmp)
+#         return
     
-# #     if idx > n:
-# #         return
+#     if idx > n:#n층까지 들어가야 해서 그 다음에 출력됨
+#         return
     
-# #     ans.append(idx) #층단위로
-# #     sol(idx+1, cnt+1)
-# #     sol(idx+2, cnt)
-# #     ans.pop()
-# #     return
-# # print("1시작")
-# # sol(1,1)
-# # print("2시작")
-# # sol(2,0)
+#     ans.append(idx) #층단위로 #12,2에서 끝인데 여기서 12가 들어가고 다음경우에 끝남!
+#     sol(idx+1, cnt+1)
+#     sol(idx+2, cnt)
+#     ans.pop()
+#     return
+# # sol(0,0) #현재 층 기준이라 0으로 하려면 다음 층 기준으로 append해야함!
+# print("1시작")
+# sol(1,1)
+# print("2시작")
+# sol(2,0)
+
+
+
+# #백트래킹
+# print("모든 경우")
+# ans = []
+# def sol(idx, cnt): #현재 idx번째를 보고 한번씩 cnt번 오름
+#     if idx > n:
+#         return
+#     if idx == n:
+#         tmp = 0
+#         for i in range(len(ans)):
+#             tmp += coin[ans[i]-1]
+#         print(idx, cnt, ans, tmp)
+#         return
+
+#     if idx+2 <= n:
+#         ans.append(idx+2)
+#         sol(idx+2, cnt)
+#         ans.pop()
+#     if cnt < 3:
+#         ans.append(idx+1)
+#         sol(idx+1, cnt+1)
+#         ans.pop()
+# sol(0,0)
+
+
 
 #문제의 오류 발견!
 # from itertools import combinations
