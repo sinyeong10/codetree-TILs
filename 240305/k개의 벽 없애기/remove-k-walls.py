@@ -25,6 +25,7 @@ def bfs(i,j):
                 if base_2d[next_x][next_y] == 0: #이동가능
                     q.append((next_x, next_y))
                     visited[next_x][next_y] = visited[x][y] + 1
+                    remove_count[next_x][next_y] = remove_count[x][y]
                 else: #돌이 있음
                     if remove_count[x][y] < k:
                         q.append((next_x, next_y))
