@@ -7,10 +7,11 @@ dp[0][0] = 0
 dp[1][1] = coin[0]
 
 for i in range(2,n+1):
+    #j-1인 경우는 1부터 가능해서! 0인 경우를 따로 처리!
     if dp[i-2][0] != -1:
         dp[i][0] = dp[i-2][0]+coin[i-1]
     for j in range(1, 4):
-        dp[i][j] = max(dp[i-1][j-1], dp[i-2][j])
+        dp[i][j] = max(dp[i-1][j-1], dp[i-2][j]) #값이 있으면 -1이 아님
         if dp[i][j] != -1:
             dp[i][j] += coin[i-1]
 
