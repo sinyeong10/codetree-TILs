@@ -10,6 +10,7 @@ def sol(idx, cnt):
     global total
     if idx == n:
         total += 1
+        # print(ans)
         return
     
     ans.append("G")
@@ -21,7 +22,7 @@ def sol(idx, cnt):
         sol(idx+1, cnt+1)
         ans.pop()
 
-    if len(ans) > 2 and ans[-1] == "B" and ans[-2] == "B":
+    if len(ans) >= 2 and ans[-1] == "B" and ans[-2] == "B":
         return
     ans.append("B")
     sol(idx+1, cnt)
