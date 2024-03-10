@@ -27,7 +27,9 @@ for i in range(1, n):
 #         if dp[i][j] > 0:
 #             print(i, j-offset, dp[i][j])
 
-max_value = 0
-for i in range(n):
-    max_value = max(max_value, dp[i][m+offset])
-print(max_value)
+# max_value = 0
+# for i in range(n):
+#     max_value = max(max_value, dp[i][m+offset])
+# print(max_value)
+#다돌아야해서 전부 체크 안해도 됨!
+print(dp[-1][m+offset])
