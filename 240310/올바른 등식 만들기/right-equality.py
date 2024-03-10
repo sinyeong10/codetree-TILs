@@ -5,7 +5,7 @@ base = list(map(int, stdin.readline().split()))
 offset = 20 #-20+offset=0이고 20+offset은 40이 되야함!
 dp = [[0]*41 for _ in range(n)] #i번째까지 보고 j-offset의 값임
 
-for i in range(n):
+for i in range(1): #모든 경우를 할 필요 없음, 왜냐하면 모두 활용해야 해서 처음만 설정하면 됨!
     dp[i][base[i]+offset] += 1
     dp[i][-base[i]+offset] += 1
 
