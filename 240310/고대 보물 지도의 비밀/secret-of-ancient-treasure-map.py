@@ -42,7 +42,7 @@ dp[0][1] = base[0] if base[0] < 0 else initial
 #근데 위의 for문은 의미상 음수의 갯수가 맞지 않음... 새로 갱신하는 경우가 더 좋아져도 음수의 갯수는 그대로....
 for i in range(1, n):
     if base[i] >= 0:
-        dp[i][0] =  max(dp[i-1][j]+base[i], base[i])
+        dp[i][0] =  max(dp[i-1][0]+base[i], base[i])
         for j in range(1, k+1): #처음 초기화하는 0의 경우가 안에 들어가서 처리됨!
             if dp[i-1][j] != initial:
                 dp[i][j] = max(dp[i-1][j]+base[i], dp[i][j])
