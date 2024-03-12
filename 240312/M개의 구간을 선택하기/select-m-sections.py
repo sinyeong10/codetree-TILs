@@ -8,6 +8,7 @@ def sol(idx, cnt):
     total = -sys.maxsize
 
     if cnt == m:
+        total = 0
         for i in range(len(ans)):
             total += ans[i]
         # print("값", idx, cnt, ans, total)
