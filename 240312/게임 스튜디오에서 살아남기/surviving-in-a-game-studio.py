@@ -41,7 +41,7 @@ for i in range(1, n):
                 # print("A", end=" : ")
                 dp[i][j][k] += dp[i-1][j-1][k]
 
-            elif k == 0:
+            elif k == 0: #앞의 if문에서 여기의 예외는 계산되어 빠짐
                 # print("B", end=" : ")
                 #G가 붙는 경우
                 for w in range(3):
