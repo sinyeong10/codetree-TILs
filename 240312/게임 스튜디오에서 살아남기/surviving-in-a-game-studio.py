@@ -57,12 +57,12 @@ for i in range(1, n):
                 # print("C", end=" : ")
                 dp[i][j][k] += dp[i-1][j][k-1]
             # print(dp[i][j][k])
-            dp[i][j][k] = dp[i][j][k]%(10**9+7)
+            dp[i][j][k] = dp[i][j][k]%(10**9+7) #각각을 나머지 연산
 
 total = 0
 for i in range(3):
     total += sum(dp[-1][i])#%(10**9+7) #sum하다 터질 수 있음
-print(total)#%(10**9+7))
+print(total%(10**9+7)) #마지막에 각각을 다 더한 것을 나머지 연산
 
 # print(dp)
 
