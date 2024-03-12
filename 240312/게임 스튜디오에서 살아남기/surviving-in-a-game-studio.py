@@ -32,6 +32,7 @@ dp[0][1][0] = 1 #"T"인 경우
 dp[0][0][1] = 1 #"B"인 경우
 dp[0][0][0] = 1 #"G"인 경우
 
+#이전 상태에서 값을 가져오며 처리함!
 for i in range(1, n):
     for j in range(3):
         for k in range(3):
@@ -40,11 +41,17 @@ for i in range(1, n):
                 # print("A", end=" : ")
                 dp[i][j][k] += dp[i-1][j-1][k]
 
-            elif k == 0: #G,T가 붙는 경우
+            elif k == 0:
                 # print("B", end=" : ")
-                for q in range(max(0, j-1), j+1):
-                    for w in range(3):
-                        dp[i][j][k] += dp[i-1][q][w]
+                #G가 붙는 경우
+                for w in range(3):
+                    dp[i][j][k] += dp[i-1][j][w]
+
+                if j == 0: #T가 없는 경우엔 T를 붙일 수 없음!
+                    continue
+                #T가 붙는 경우
+                for w in range(3):
+                    dp[i][j][k] += dp[i-1][j-1][w]
             
             elif k != 0: #B가 붙는 경우
                 # print("C", end=" : ")
