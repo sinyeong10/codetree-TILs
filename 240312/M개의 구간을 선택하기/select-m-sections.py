@@ -7,15 +7,11 @@ import sys
 def sol(idx, cnt):
     total = -sys.maxsize
 
-    if cnt == m-1: #m-1가 되고 바로 끝나면 안됨!
+    if cnt == m: #m-1가 되고 바로 끝나면 안됨!
         total = 0
         for i in range(len(ans)):
             total += ans[i]
         # print("값", idx, cnt, ans, total)
-        if idx < n: #범위 끝까지 값을 추가해 봄
-            ans.append(base[idx])
-            total = max(total, sol(idx+1, cnt))
-            ans.pop()
         return total
 
     if cnt > m or idx >= n: #범위 초과
@@ -28,6 +24,8 @@ def sol(idx, cnt):
 
     # 현재 인덱스 선택
     if ans and ans[-1] != base[idx-1]: #이전 값이 있고, 현재 선택 바로 전의 값이 아닌 경우
+        cnt += 1
+    if not ans:
         cnt += 1
     ans.append(base[idx])
     total = max(total, sol(idx+1, cnt))
