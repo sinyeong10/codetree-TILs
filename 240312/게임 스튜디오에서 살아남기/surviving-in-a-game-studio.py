@@ -55,13 +55,14 @@ for i in range(1, n):
             
             elif k != 0: #B가 붙는 경우
                 # print("C", end=" : ")
-                dp[i][j][k] = dp[i-1][j][k-1]
+                dp[i][j][k] += dp[i-1][j][k-1]
             # print(dp[i][j][k])
+            dp[i][j][k] = dp[i][j][k]%(10**9+7)
 
 total = 0
 for i in range(3):
-    total += sum(dp[-1][i])%(10**9+7)
-print(total%(10**9+7))
+    total += sum(dp[-1][i])#%(10**9+7) #sum하다 터질 수 있음
+print(total)#%(10**9+7))
 
 # print(dp)
 
