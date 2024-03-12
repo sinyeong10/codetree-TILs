@@ -3,8 +3,9 @@ n, m = list(map(int, stdin.readline().split()))
 base = list(map(int, stdin.readline().split()))
 
 ans = []
+import sys
 def sol(idx, cnt):
-    total = 0
+    total = -sys.maxsize
 
     if cnt == m:
         for i in range(len(ans)):
