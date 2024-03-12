@@ -35,28 +35,28 @@ dp[0][0][0] = 1 #"G"인 경우
 for i in range(1, n):
     for j in range(3):
         for k in range(3):
-            print(i,j,k,end=" : ")
+            # print(i,j,k,end=" : ")
             if i+1 == j: #T가 붙는 경우
-                print("A", end=" : ")
+                # print("A", end=" : ")
                 dp[i][j][k] += dp[i-1][j-1][k]
 
             elif k == 0: #G,T가 붙는 경우
-                print("B", end=" : ")
-                for q in range(j-1, j+1):
+                # print("B", end=" : ")
+                for q in range(max(0, j-1), j+1):
                     for w in range(3):
                         dp[i][j][k] += dp[i-1][q][w]
             
             elif k != 0: #B가 붙는 경우
-                print("C", end=" : ")
+                # print("C", end=" : ")
                 dp[i][j][k] = dp[i-1][j][k-1]
-            print(dp[i][j][k])
+            # print(dp[i][j][k])
 
 total = 0
 for i in range(3):
-    total += sum(dp[-1][i])
-print(total)
+    total += sum(dp[-1][i])%(10**9+7)
+print(total%(10**9+7))
 
-print(dp)
+# print(dp)
 
 # #백트래킹 시간초과
 # total = 0
