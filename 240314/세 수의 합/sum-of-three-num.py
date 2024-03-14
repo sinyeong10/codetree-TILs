@@ -2,7 +2,7 @@ from sys import stdin
 n, k = list(map(int, stdin.readline().split()))
 base = list(map(int, stdin.readline().split()))
 
-#메모리 초과!
+#2가지 덧셈의 결과를 다 저장 : 메모리 초과! #모두 1인 경우 틀림..
 # count = {}
 # total = 0
 # for elem in base:
@@ -25,14 +25,16 @@ base = list(map(int, stdin.readline().split()))
 #     else:
 #         count[elem] = 1
 # print(total)
+# print(count)
 
-total = 0
-for i in range(n):
-    for j in range(i):
-        for q in range(j):
-            if base[i]+base[j]+base[q] == k:
-                total += 1
-print(total)
+#완전 탐색 : 시간초과 나올 수 있음!
+# total = 0
+# for i in range(n):
+#     for j in range(i):
+#         for q in range(j):
+#             if base[i]+base[j]+base[q] == k:
+#                 total += 1
+# print(total)
 
 
 
@@ -53,3 +55,34 @@ print(total)
 #         count[base[i]] = 1
     
 # print(total//2)
+
+
+
+arr = base
+
+count = dict()
+
+# 각 숫자가 몇 번씩 나왔는지를
+# hashmap에 기록해줍니다.
+for elem in arr:
+    if elem in count:
+        count[elem] += 1
+    else:
+        count[elem] = 1
+
+ans = 0
+# 배열을 앞에서부터 순회하며 쌍을 만들어줍니다.
+for i in range(n):
+    # 이미 순회한 적이 있는 숫자는 빼 버림으로서
+    # 같은 조합이 여러번 세어지는 걸 방지합니다.
+    count[arr[i]] -= 1
+
+    for j in range(i):
+        # 전처리를 해주었기 때문에 이미 순회한 적 있는 값은 hashmap에 없습니다.
+        # 이와 같은 방식으로 같은 조합이 중복되어 세어지는 걸 방지할 수 있습니다.
+        diff = k - arr[i] - arr[j]
+
+        if diff in count:
+            ans += count[diff]
+
+print(ans)
