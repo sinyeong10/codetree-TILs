@@ -13,7 +13,7 @@ for i in range(n):
 
 #주어진 조건대로 정렬
 tmp = []
-for key in count.keys():
+for key in count.keys(): #.items()로 key, value를 받을 수도 있음!
     tmp.append((count[key], key)) #등장 횟수 우선, 같으면 숫자 큰 것 우선!
 
 tmp.sort(reverse=True) #내림차순 정렬
