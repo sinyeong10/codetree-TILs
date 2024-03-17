@@ -29,8 +29,10 @@ for key, value in group.items():
         max_value = value
         many_word = key
 # print(many_word)
+print(max_value)
 
-length = 0
-for i in range(1, len(many_word), 2):
-    length += int(many_word[i])
-print(length)
+#가장 많은 그룹의 단어의 길이가 아닌 갯수임...
+# length = 0
+# for i in range(1, len(many_word), 2):
+#     length += int(many_word[i])
+# print(length)
