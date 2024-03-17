@@ -13,14 +13,14 @@ for _ in range(n):
     ans = ""
     for key in sorted(tmp.keys()): #알파벳순서로 key를 정렬해서 순서를 동일하게 함!
         ans = ans+str(key)+str(tmp[key])
-    print(ans)
+    # print(ans)
 
     if ans in group:
         group[ans] += 1
     else:
         group[ans] = 1
 
-print(group)
+# print(group)
 
 max_value = 0
 many_word = ""
@@ -28,7 +28,7 @@ for key, value in group.items():
     if max_value < value:
         max_value = value
         many_word = key
-print(many_word)
+# print(many_word)
 
 length = 0
 for i in range(1, len(many_word), 2):
