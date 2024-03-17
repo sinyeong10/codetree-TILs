@@ -10,6 +10,7 @@ for _ in range(n):
         else:
             tmp[elem] = 1
     
+    #문자를 정렬한 후에 딕셔너리로 처리해도 됨
     ans = ""
     for key in sorted(tmp.keys()): #알파벳순서로 key를 정렬해서 순서를 동일하게 함!
         ans = ans+str(key)+str(tmp[key])
