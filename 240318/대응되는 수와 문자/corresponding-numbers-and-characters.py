@@ -11,3 +11,5 @@ for _ in range(m):
         print(base[int(query)-1])
     else:
         print(base_dict[query])
+        
+#처음 값이 숫자라면 숫자인걸로 조건을 세워 변환할 수도 있음!
