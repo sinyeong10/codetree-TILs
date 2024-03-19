@@ -23,6 +23,7 @@ def check(idxs):
     return 1
 
 idxs = []
+#굳이 백트래킹 하지 않고, x,y,z를 중복되지 않게 구하는 for문 3중첩도 가능!
 def find_idx(idx, cnt):
     if cnt > 4 or idx > m:
         return
