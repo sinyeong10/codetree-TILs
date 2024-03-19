@@ -69,13 +69,23 @@ def test_location(x, y, z):
     # 모든 B의 원소가 A와 다르다면 A와 B를 구분해낼 수 있습니다.
     return True
 
-# 서로 다른 세 자리의 조합을 모두 순회합니다.
-for i in range(m):
-    for j in range(i + 1, m):
-        for k in range(j + 1, m):
-            # i, j, k 번째 자리를 선택했을 때 두 그룹을
-            # 완벽하게 구분할 수 있는지 확인합니다.
-            if test_location(i, j, k): ans += 1
+idxs = []
+#굳이 백트래킹 하지 않고, x,y,z를 중복되지 않게 구하는 for문 3중첩도 가능!
+def find_idx(idx, cnt):
+    global ans
+    if cnt > 4 or idx > m:
+        return
 
+    if cnt == 3:
+        if test_location(idxs[0], idxs[1], idxs[2]): ans += 1
+        return
+
+    find_idx(idx+1, cnt)
+    idxs.append(idx)
+    find_idx(idx+1, cnt+1)
+    idxs.pop()
+
+find_idx(0,0)
+            
 # 두 그룹을 구분해낼 수 있는 조합 수를 출력합니다.
 print(ans)
