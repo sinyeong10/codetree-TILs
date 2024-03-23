@@ -13,4 +13,6 @@ for elem in B:
     if elem not in A: #B-A
         ans += 1
 
+#a+b후 A와 B의 합집합의 갯수 * 2를 빼도 됨!
+
 print(ans)
