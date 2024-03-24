@@ -50,6 +50,6 @@ for i in range(n):
 # print(seat)
 
 if tmp_list and (len(tmp_list) >= tmp and tmp_list[tmp-1] >= tmp): #break라서 끝남
-    print(i) #인덱스 기준이라 이전까지의 총합이 현재 인덱스
+    print(i+1) #인덱스 기준이라 이전까지의 총합이 현재 인덱스
 else: #마지막이라서 끝남
-    print(i+1) #인덱스 기준이라 +1임
+    print(i) #인덱스 기준이라 +1임
