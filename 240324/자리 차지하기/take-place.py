@@ -43,8 +43,8 @@ def sol():
     for i in range(n):
         tmp = base[i]
         seat.sort()
-        # print(tmp, tmp_list, seat, 1 if tmp_list else 2)
-        if seat and (len(seat) >= tmp and seat[tmp-1] >= tmp):
+        # print(tmp, seat, 1 if seat else 2)
+        if seat and (len(seat) >= tmp and seat[tmp-1] <= tmp):
             return i
         else:
             seat.append(tmp)
