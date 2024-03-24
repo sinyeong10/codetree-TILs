@@ -20,18 +20,36 @@ base = list(map(int, stdin.readline().split()))
 # else:
 #     print(i+1)
 
-seat = set()
+# #시간초과
+# seat = set()
+# for i in range(n):
+#     tmp = base[i]
+#     while tmp > 0:
+#         if tmp in seat:
+#             tmp -= 1
+#         else:
+#             seat.add(tmp)
+#             break
+#     # print(seat)
+
+# if tmp == 0: #break라서 끝남
+#     print(i) #인덱스 기준이라 이전까지의 총합이 현재 인덱스
+# else: #마지막이라서 끝남
+#     print(i+1) #인덱스 기준이라 +1임
+
+
+seat = []
 for i in range(n):
     tmp = base[i]
-    while tmp > 0:
-        if tmp in seat:
-            tmp -= 1
-        else:
-            seat.add(tmp)
-            break
-    # print(seat)
+    tmp_list = sorted(seat)
+    # print(tmp, tmp_list, seat)
+    if tmp_list and (len(tmp_list) >= tmp and tmp_list[tmp-1] >= tmp):
+        break
+    else:
+        seat.append(tmp)
+# print(seat)
 
-if tmp == 0: #break라서 끝남
+if tmp_list[tmp-1] >= tmp: #break라서 끝남
     print(i) #인덱스 기준이라 이전까지의 총합이 현재 인덱스
 else: #마지막이라서 끝남
     print(i+1) #인덱스 기준이라 +1임
