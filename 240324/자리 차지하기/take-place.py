@@ -38,18 +38,17 @@ base = list(map(int, stdin.readline().split()))
 #     print(i+1) #인덱스 기준이라 +1임
 
 
-seat = []
-for i in range(n):
-    tmp = base[i]
-    tmp_list = sorted(seat)
-    # print(tmp, tmp_list, seat)
-    if tmp_list and (len(tmp_list) >= tmp and tmp_list[tmp-1] >= tmp):
-        break
-    else:
-        seat.append(tmp)
-# print(seat)
+def sol():
+    seat = []
+    for i in range(n):
+        tmp = base[i]
+        seat.sort()
+        # print(tmp, tmp_list, seat, 1 if tmp_list else 2)
+        if seat and (len(seat) >= tmp and seat[tmp-1] >= tmp):
+            return i
+        else:
+            seat.append(tmp)
+    # print(seat)
+    return i+1
 
-if tmp_list and (len(tmp_list) >= tmp and tmp_list[tmp-1] >= tmp): #break라서 끝남
-    print(i+1) #인덱스 기준이라 이전까지의 총합이 현재 인덱스
-else: #마지막이라서 끝남
-    print(i) #인덱스 기준이라 +1임
+print(sol())
