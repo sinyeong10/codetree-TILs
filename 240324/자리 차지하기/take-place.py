@@ -12,4 +12,9 @@ for i in range(n): #인덱스 단위
     # print(count)
     if count[base[i]] > base[i]:
         break
-print(i)
+
+#마지막에 for문 끝날 때 if문때문에 끝난 건지 불가능해서 끝난 건지 체크
+if count[base[-1]] > base[-1]:
+    print(i)
+else:
+    print(i+1)
