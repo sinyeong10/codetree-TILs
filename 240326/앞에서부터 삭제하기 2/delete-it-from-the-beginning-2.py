@@ -13,6 +13,8 @@ for i in range(n-2, 0, -1):
     heapq.heappush(hq, base[i])
     total += base[i]
 
+    #제거하지 않고 [0]가 최솟값이므로 가져와서 활용 가능!
+    
     #최솟값 제거
     tmp = heapq.heappop(hq)
     total -= tmp
