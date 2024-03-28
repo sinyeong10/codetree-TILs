@@ -28,3 +28,6 @@ for _ in range(m):
     #시계방향에 주위, 각 target기준에서 왼쪽과 오른쪽[현재 시계방향이 next임]
     print(target.next.data, target.prev.data)
     target.prev.next, target.next.prev = target.next, target.prev
+
+    #target의 초기화도 들어가는 게 혹시 모를 접근시 오류 방지 가능
+    target.prev = target.next = None
