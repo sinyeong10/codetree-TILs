@@ -2,7 +2,7 @@ from sys import stdin
 n = int(stdin.readline())
 data = [[i]+list(map(int, stdin.readline().split())) for i in range(n)]
 data.sort(key=lambda x : (x[1],x[0])) #먼저 온 순서, 기다릴때는 번호표 순서로 입장
-print(data)
+# print(data)
 
 time = 0 #현재 시간
 ans = 0
