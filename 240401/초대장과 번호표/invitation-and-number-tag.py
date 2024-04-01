@@ -10,7 +10,8 @@ n, g = list(map(int, stdin.readline().split()))
 #     if 1 in group[i]:
 #         group[i].remove(1)
 
-# from collections import deque #tmp를 리스트가 아닌 큐로 관리
+#set의 경우 add는 중복이 발생하지 않아 while 중첩 빼도 되긴함, 단 시간 더 걸림
+# from collections import deque #tmp를 set이 아닌 큐로 관리
 # tmp = deque()
 # tmp.append(1)
 # # tmp = {1}
