@@ -13,14 +13,14 @@ tmp = deque()
 tmp.append(1)
 # tmp = {1}
 while tmp:
-    # while tmp:
-    # key = list(tmp)[0]
-    key = tmp.popleft()
-    ans.add(key)
-    # tmp.remove(key)
-    for i in range(g):
-        if key in group[i]:
-            group[i].remove(key)
+    while tmp:
+        # key = list(tmp)[0]
+        key = tmp.popleft()
+        ans.add(key)
+        # tmp.remove(key)
+        for i in range(g):
+            if key in group[i]:
+                group[i].remove(key)
 
     for i in range(g):
         if len(group[i]) == 1:
