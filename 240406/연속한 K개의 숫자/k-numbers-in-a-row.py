@@ -15,5 +15,5 @@ for i in range(n):
 
 min_value = b
 for i in range(n-k):
-    min_value = min(min_value, prefix[i+k]-prefix[i]) #i+1부터 i+k까지 k개의 숫자 체크
+    min_value = min(min_value, prefix[i+k]-prefix[i-1]) #i+1부터 i+k까지 k개의 숫자 체크
 print(min_value)
