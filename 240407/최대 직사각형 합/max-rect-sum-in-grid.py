@@ -12,7 +12,7 @@ for i in range(n):
 
 # print(prefix)
 
-max_value = 0
+max_value = -sys.maxsize
 for i in range(n+1):
     for j in range(n+1):
 
