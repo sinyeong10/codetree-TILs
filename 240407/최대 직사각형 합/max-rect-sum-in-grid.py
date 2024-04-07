@@ -11,7 +11,7 @@ for i in range(n):
         prefix[i+1][j+1] = prefix[i+1][j]+prefix[i][j+1]-prefix[i][j]+base[i][j]
 
 # print(prefix)
-
+import sys
 max_value = -sys.maxsize
 for i in range(n+1):
     for j in range(n+1):
