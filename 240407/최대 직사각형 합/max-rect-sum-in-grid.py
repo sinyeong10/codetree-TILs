@@ -2,7 +2,7 @@ from sys import stdin
 n = int(stdin.readline())
 base = [list(map(int, stdin.readline().split())) for _ in range(n)]
 
-print(base)
+# print(base)
 
 prefix = [[0]*(n+1) for _ in range(n+1)]
 
@@ -10,7 +10,7 @@ for i in range(n):
     for j in range(n):
         prefix[i+1][j+1] = prefix[i+1][j]+prefix[i][j+1]-prefix[i][j]+base[i][j]
 
-print(prefix)
+# print(prefix)
 
 max_value = 0
 for i in range(n+1):
