@@ -2,6 +2,7 @@ from sys import stdin
 n, q = list(map(int, stdin.readline().split()))
 stone = [int(stdin.readline()) for _ in range(n)] #인덱스 기준
 
+#그룹 3개 대신 2차원 리스트로 표현 가능!, 중복 입력을 감소할 수 있음!
 group1 = [0 for _ in range(n+1)]
 group2 = [0 for _ in range(n+1)]
 group3 = [0 for _ in range(n+1)]
