@@ -2,7 +2,7 @@ from sys import stdin
 n = int(stdin.readline())
 lines = [tuple(map(int, stdin.readline().split())) for _ in range(n)]
 lines.sort()
-print(lines)
+# print(lines)
 
 L = [0 for _ in range(n+1)]
 for i in range(n):
@@ -11,7 +11,7 @@ for i in range(n):
 R = [10**7+1 for _ in range(n+1)]
 for i in range(n-1, -1, -1):
     R[i] = min(R[i+1], lines[i][1])
-print(L, R)
+# print(L, R)
 
 total = 0
 for i in range(n):
