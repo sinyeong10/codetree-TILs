@@ -18,8 +18,14 @@ point.sort()
 
 ans = 0
 total = 0
-for elem in point:
-    total += elem[1]
-    if total > 1:
-        ans += 1
+last = point[0][0]
+for i in range(2*n):
+    total += point[i][1]
+    if total < k:
+        ans += abs(last-point[i][0])
+        last = point[i][0]
+    elif total == k and point[i][1] == 1: #내려갔다가 올라가며 k가 되는 지점이 범위의 시작점!
+        last = point[i][0]
+    # print(total, last, point[i], ans)
+
 print(ans)
