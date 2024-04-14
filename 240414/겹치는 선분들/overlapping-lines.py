@@ -20,12 +20,15 @@ ans = 0
 total = 0
 last = point[0][0]
 for i in range(2*n):
+    if total >= k:
+        ans += point[i][0]-point[i-1][0]
     total += point[i][1]
-    if total == k-1 and point[i][1] == -1: #처음 내려갈 때 계산
-        ans += abs(last-point[i][0])
-        last = point[i][0]
-    elif total == k and point[i][1] == 1: #처음 올라갈때 시작 위치 기록
-        last = point[i][0]
-    # print(total, last, point[i], ans)
+
+    # if total == k-1 and point[i][1] == -1: #처음 내려갈 때 계산
+    #     ans += abs(last-point[i][0])
+    #     last = point[i][0]
+    # elif total == k and point[i][1] == 1: #처음 올라갈때 시작 위치 기록
+    #     last = point[i][0]
+    # # print(total, last, point[i], ans)
 
 print(ans)
