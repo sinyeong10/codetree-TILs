@@ -21,7 +21,7 @@ total = 0
 last = point[0][0]
 for i in range(2*n):
     total += point[i][1]
-    if total < k:
+    if total == k-1 and point[i][1] == -1:
         ans += abs(last-point[i][0])
         last = point[i][0]
     elif total == k and point[i][1] == 1: #내려갔다가 올라가며 k가 되는 지점이 범위의 시작점!
