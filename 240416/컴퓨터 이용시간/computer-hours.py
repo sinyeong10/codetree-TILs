@@ -1,7 +1,7 @@
 from sys import stdin
 n = int(stdin.readline())
 
-seat = [0 for _ in range(n+1)]
+# seat = [0 for _ in range(n+1)]
 find_seat = [False for _ in range(n)]
 
 import heapq
@@ -25,7 +25,7 @@ for value, direct, idx in point:
     # print("\n", value, direct, idx)
     if direct == 1:
         key = heapq.heappop(order)
-        seat[key] = idx
+        # seat[key] = idx #없어도 됨! 각 자리별 누가 쓰는지는 필요x
         find_seat[idx] = key
     else:
         heapq.heappush(order, find_seat[idx])
