@@ -9,10 +9,10 @@ for _ in range(n):
     else:
         base[basket] = candy
 
-print(base)
+# print(base)
 
 key = sorted(base.keys())
-print(key)
+# print(key)
 
 max_value = 0
 for elem in key:
