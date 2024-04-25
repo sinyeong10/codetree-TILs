@@ -10,7 +10,7 @@ for first in range(n):
         end -= 1 #end가 first와 같아지거나 2수의 합이 k이하가 되면 탈출!
     if base[end] + base[first] <= k: #이하가 되서 while문 탈출인지 조건 위배인지 확인하기 위함!
         ans += end - first #first 선택시 가능한 end의 갯수!
-    print(first, end, base[end],base[first], end-first)
+    # print(first, end, base[end],base[first], end-first)
 
 
 print(ans)
