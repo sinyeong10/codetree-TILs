@@ -28,3 +28,5 @@ for i in range(len(sentense)):
         check[sentense[i]] -= 1
     total -= 1
 print(ans)
+
+#len대신 변수로 처리가능, 그때는 del하지않고 1인지 체크하는 방식으로!
