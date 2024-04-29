@@ -14,7 +14,7 @@ for first in range(n):
         end += 1
         total += 1
     # print(base[first:end], first, end, count, total)
-    if base[first] == 1 and end < n and count >= k:
+    if base[first] == 1 and count >= k:
         ans = min(ans, total)
         count -= 1
     total -= 1
