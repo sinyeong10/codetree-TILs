@@ -25,8 +25,9 @@ end = n-1 #n개 있고 인덱스 기준!
 for i in range(n): #i는 첫 숫자
     while base[key[i]] != 0 and i <= end:
         value = min(base[key[i]], base[key[end]])
+        # print(key[i], key[end], value)
         if i == end:
-            value // 2
+            value //= 2
         ans = max(ans, key[i]+key[end])
         base[key[i]] -= value
         base[key[end]] -= value
