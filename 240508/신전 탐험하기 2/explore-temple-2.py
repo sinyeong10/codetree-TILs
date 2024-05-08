@@ -8,10 +8,11 @@ dp = [[0]*3 for _  in range(n)]
 
 for start in range(3):
     dp[0] = base[0][:]
-    dp[0][start] = 0
+    dp[0][start] = 0 #n층의 start를 채우기 위해선 1층에서 start를 가면 안됨!
     # print(dp[0], base[0])
     for i in range(1, n-1):
         for j in range(3):
+            dp[i][j] = 0
             for k in range(3):
                 if j == k:
                     continue
@@ -20,8 +21,8 @@ for start in range(3):
         if start == k:
             continue
         dp[-1][start] = max(dp[-1][start], base[-1][start]+dp[-2][k])
+    # print(dp)
 print(max(dp[-1]))
-
 
 # dp[-1] = base[-1]
 
