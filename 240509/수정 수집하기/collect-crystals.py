@@ -27,21 +27,25 @@ if data[0][0] == here: #L인 경우
 else: #R인 경우
     dp[0][1][1] = data[0][1]
     dp[0][0][0] = 0
-# print(dp)
+# print(len(dp), len(dp[0]), dp[0][0])
 
 for cnt in range(k+1):
     for i in range(len(data)-1):
         for j in range(2):
-            if dp[i][j][cnt] == -1: #불가능
+            if dp[i][cnt][j] == -1: #불가능
                 # print("불가능",i,j,cnt)
                 continue
-            # print("가능",i,j,cnt,dp[i][j][cnt])
+            # print("가능",i,j,cnt,dp[i][cnt][j])
             if j == trans[data[i+1][0]]: #같으면 그대로 가서 점수 획득
-                dp[i+1][j][cnt] = max(dp[i+1][j][cnt], dp[i][j][cnt]+data[i+1][1])
+                dp[i+1][cnt][j] = max(dp[i+1][cnt][j], dp[i][cnt][j]+data[i+1][1])
             else:
-                dp[i+1][j][cnt] = max(dp[i+1][j][cnt], dp[i][j][cnt])
+                dp[i+1][cnt][j] = max(dp[i+1][cnt][j], dp[i][cnt][j])
                 if cnt < k:
-                    dp[i+1][1-j][cnt+1] = max(dp[i+1][1-j][cnt+1], dp[i][j][cnt]+data[i+1][1])
+                    # try:
+                    dp[i+1][cnt+1][1-j] = max(dp[i+1][cnt+1][1-j], dp[i][cnt][j]+data[i+1][1])
+                    # except:
+                    #     print(i,j,cnt,"에서 문제 발생", i+1, 1-j, cnt+1)
+                    #     print(dp[i+1][1-j][cnt+1], dp[i][j][cnt]+data[i+1][1])
 # print(dp)
 # print(list(max(elem) for elem in dp[-1]))
 print(max(max(elem) for elem in dp[-1]))
