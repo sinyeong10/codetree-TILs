@@ -13,10 +13,11 @@ def find(i, j):
     for x, y in zip(direct_x, direct_y):
         check = True
         for k in range(1, 5):
-            if key != base_2d[i+x*k][j+y*k]:
-                # print(i+x*k, j+y*k,key, base_2d[i+x*k][j+y*k])
-                check = False
-                break
+            #범위 밖이거나 같은 숫자가 아닌 경우
+            if not in_range(i+x*k, j+y*k) or key != base_2d[i+x*k][j+y*k]:
+                    # print(i+x*k, j+y*k,key, base_2d[i+x*k][j+y*k])
+                    check = False
+                    break
         if check:
             # print("정답", i+1+x*2,j+1+y*2)
             print(key)
