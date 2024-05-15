@@ -13,5 +13,9 @@ for i in range(n): #시작하는 방의 위치
     for j in range(i): #i전에 끝!
         tmp += base[j]*dist
         dist += 1
+
+    #2개의 for문을
+    #dist = (j + n - i) % n로 합칠 수 있음!
+
     ans = min(ans, tmp)
 print(ans)
