@@ -9,7 +9,8 @@ def check(i,j):
     dxs, dys = [-1,1,0,0,-1,1,1,-1], [0,0,-1,1,1,1,-1,-1] #상하좌우,우상우하좌하좌상
     tmp = 0
     for dx, dy in zip(dxs, dys):
-        if in_range(i+dx, i+dy) and in_range(i+dx*2, j+dy*2) and base_2d[i+dx][j+dy] == base_2d[i+dx*2][j+dy*2] == "E":
+        #i자리에 j로 오타...
+        if in_range(i+dx, j+dy) and in_range(i+dx*2, j+dy*2) and base_2d[i+dx][j+dy] == base_2d[i+dx*2][j+dy*2] == "E":
             tmp += 1
     return tmp
 
