@@ -13,7 +13,7 @@ parent[1] = 0
 
 def dfs(node):
     for elem in graph[node]:
-        if parent[elem] == -1:
+        if parent[elem] == -1: #이미 갔으면 부모 노드가 기록되어 있음!
             parent[elem] = node
 
             dfs(elem)
