@@ -14,12 +14,12 @@ for i in range(n):
 # print(graph)
 
 def count(node):
-    if node == del_node:
-        return 0
     tmp = 0
     for elem in graph[node]:
+        if elem == del_node:
+            continue
         tmp += count(elem)
-    if not graph[node]:
+    if not graph[node] or graph[node] == [del_node]:
         tmp += 1
     return tmp
 
