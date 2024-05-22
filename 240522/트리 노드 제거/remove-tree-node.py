@@ -23,7 +23,7 @@ def count(node):
         tmp += count(elem)
     if not graph[node] or graph[node] == [del_node]:
         tmp += 1
-    print(node, tmp)
+    # print(node, tmp)
     return tmp
 
 print(count(root))
