@@ -21,24 +21,34 @@ for k in range(4):
 for i in range(m+1): #비슷한 수열이 0인 것 부터 m인 것 까지 계산
     for j in range(1, n): #현재 보는 인덱스
         for k in range(4):
+            tmp = 0
+            if k+1 == base[j]: #현재 들어갈 숫자가 인덱스의 숫자와 같아 유사도 1 증가!
+                tmp = 1
+
             for prev_k in range(4):
-                tmp = 0
-                if k+1 == base[j]:
-                    tmp = 1
-                    # if k == prev_k: #이전과 숫자가 같은 경우
-                    #     dp[i][j][k] = max(dp[i][j][k], dp[i][j-1][prev_k]+tmp)
-                    # else: #이전과 숫자가 달라 비슷한 수열의 카운팅횟수 1증가
-                    #     dp[i+1][j][k] = max(dp[i+1][j][k], dp[i][j-1][prev_k]+tmp)
-                if dp[i][j-1][prev_k] != -1: #같은 비슷한 수열의 조건의 값이 불가능한 경우를 패스하는 것이 아닌
-                #모든 비슷한 수열의 조건의 값중 -1이 아닌 경우에 시도해야함
-                #이전 숫자와 같은 숫자를 선택하는 경우
-                    if k == prev_k: #이전과 숫자가 같은 경우
-                        dp[i][j][k] = max(dp[i][j][k], dp[i][j-1][prev_k]+tmp)
-                #이전 숫자와 다른 숫자를 선택하는 경우
-                if i != 0 and dp[i-1][j-1][prev_k] != -1:
-                    if k != prev_k: #이전과 숫자가 달라 비슷한 수열의 카운팅횟수 1증가
-                        dp[i+1][j][k] = max(dp[i+1][j][k], dp[i][j-1][prev_k]+tmp)
+                if k == prev_k: #이전과 숫자가 같은 경우
+                    dp[i][j][k] = max(dp[i][j][k], dp[i][j-1][prev_k]+tmp)
+                else: #이전과 숫자가 달라 비슷한 수열의 카운팅횟수 1증가
+                    # print(i,j,k,prev_k, dp[i][j-1][prev_k])
+                    dp[i+1][j][k] = max(dp[i+1][j][k], dp[i][j-1][prev_k]+tmp)
+
+
+                # #같은 비슷한 수열의 조건의 값이 불가능한 경우를 패스하는 것이 아닌
+                # #모든 비슷한 수열의 조건의 값중 -1이 아닌 경우에 시도해야함
+                # #이전 숫자와 같은 숫자를 선택하는 경우
+                # if dp[i][j-1][prev_k] != -1:
+                #     if k == prev_k: #이전과 숫자가 같은 경우
+                #         dp[i][j][k] = max(dp[i][j][k], dp[i][j-1][prev_k]+tmp)
+                # #이전 숫자와 다른 숫자를 선택하는 경우
+                # elif i != 0 and dp[i-1][j-1][prev_k] != -1:
+                #     if k != prev_k: #이전과 숫자가 달라 비슷한 수열의 카운팅횟수 1증가
+                #         dp[i+1][j][k] = max(dp[i+1][j][k], dp[i][j-1][prev_k]+tmp)
+                # else:
+                #     print(i,j,k, prev_k)
     # print(i)
     # print(dp)
 
-print(max(dp[m][-1]))
+ans = 0
+for i in range(m+1):
+    ans = max(ans, max(dp[i][-1]))
+print(ans)
