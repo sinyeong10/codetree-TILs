@@ -17,19 +17,27 @@ for k in range(4):
 
 # print(dp)
 
+#이전에서 가져오는 것은 모든[이전, 현재 의미] 비슷한 수열의 조건의 값을 가진 상태를 확인해야함!
 for i in range(m+1): #비슷한 수열이 0인 것 부터 m인 것 까지 계산
     for j in range(1, n): #현재 보는 인덱스
         for k in range(4):
             for prev_k in range(4):
-                if dp[i][j-1][prev_k] == -1:
-                    continue
                 tmp = 0
                 if k+1 == base[j]:
                     tmp = 1
-                if k == prev_k: #이전과 숫자가 같은 경우
-                    dp[i][j][k] = max(dp[i][j][k], dp[i][j-1][prev_k]+tmp)
-                else: #이전과 숫자가 달라 비슷한 수열의 카운팅횟수 1증가
-                    dp[i+1][j][k] = max(dp[i+1][j][k], dp[i][j-1][prev_k]+tmp)
+                    # if k == prev_k: #이전과 숫자가 같은 경우
+                    #     dp[i][j][k] = max(dp[i][j][k], dp[i][j-1][prev_k]+tmp)
+                    # else: #이전과 숫자가 달라 비슷한 수열의 카운팅횟수 1증가
+                    #     dp[i+1][j][k] = max(dp[i+1][j][k], dp[i][j-1][prev_k]+tmp)
+                if dp[i][j-1][prev_k] != -1: #같은 비슷한 수열의 조건의 값이 불가능한 경우를 패스하는 것이 아닌
+                #모든 비슷한 수열의 조건의 값중 -1이 아닌 경우에 시도해야함
+                #이전 숫자와 같은 숫자를 선택하는 경우
+                    if k == prev_k: #이전과 숫자가 같은 경우
+                        dp[i][j][k] = max(dp[i][j][k], dp[i][j-1][prev_k]+tmp)
+                #이전 숫자와 다른 숫자를 선택하는 경우
+                if i != 0 and dp[i-1][j-1][prev_k] != -1:
+                    if k != prev_k: #이전과 숫자가 달라 비슷한 수열의 카운팅횟수 1증가
+                        dp[i+1][j][k] = max(dp[i+1][j][k], dp[i][j-1][prev_k]+tmp)
     # print(i)
     # print(dp)
 
