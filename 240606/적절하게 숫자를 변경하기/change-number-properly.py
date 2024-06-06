@@ -30,8 +30,9 @@ for i in range(m+1): #비슷한 수열이 0인 것 부터 m인 것 까지 계산
                     dp[i][j][k] = max(dp[i][j][k], dp[i][j-1][prev_k]+tmp)
                 else: #이전과 숫자가 달라 비슷한 수열의 카운팅횟수 1증가
                     # print(i,j,k,prev_k, dp[i][j-1][prev_k])
+                    #i,j,k시점에서 앞에선 값을 채우는 데 여기서 i+1,j,k의 값을 뿌리는 건 햇갈림..
+                    # dp[i+1][j][k] = max(dp[i+1][j][k], dp[i][j-1][prev_k]+tmp)
                     dp[i][j][k] = max(dp[i][j][k], dp[i-1][j-1][prev_k]+tmp)
-
 
                 # #같은 비슷한 수열의 조건의 값이 불가능한 경우를 패스하는 것이 아닌
                 # #모든 비슷한 수열의 조건의 값중 -1이 아닌 경우에 시도해야함
