@@ -140,7 +140,16 @@ for i in range(m+1): #비슷한 수열이 0인 것 부터 m인 것 까지 계산
                     # print("이전과 숫자가 같은 경우\n", i,j,k, prev_k, " : ", dp[i][j-1][prev_k])
                     # print(dp[i][j][k],"에 이 값을 갱신 시도", dp[i][j-1][prev_k]+tmp)
                     dp[i][j][k] = max(dp[i][j][k], dp[i][j-1][prev_k]+tmp)
+
                 #이전 숫자와 다른 숫자를 선택하는 경우
+                #i != 0 이게 문제, 처음에 돌지 않아 이후로 모두 갱신되지 않아서 그럼!
+                #i-1에서 값을 가져온다고 생각했으나 i+1을 i에서 갱신하는 형태로 DP식의 정의가 제대로 되지 않아서 문제발생!
+                #DP식의 의미가 맞을 경우 문제 없음을 확인 가능, 처음은 -1인 경우 모두 -1이라 갱신 안되어 처음인 경우는 자동으로 갱신되지 않음
+                # elif i != 0 and dp[i-1][j-1][prev_k] != -1 and k != prev_k: #이전과 숫자가 달라 비슷한 수열의 카운팅횟수 1증가
+                #     # print("이전과 숫자가 다른 경우\n", i,j,k, prev_k, " : ", dp[i][j-1][prev_k])
+                #     # print(dp[i+1][j][k],"에 이 값을 갱신 시도", dp[i][j-1][prev_k]+tmp)
+                #     dp[i][j][k] = max(dp[i][j][k], dp[i-1][j-1][prev_k]+tmp)
+
                 elif dp[i][j-1][prev_k] != -1 and k != prev_k: #이전과 숫자가 달라 비슷한 수열의 카운팅횟수 1증가
                     # print("이전과 숫자가 다른 경우\n", i,j,k, prev_k, " : ", dp[i][j-1][prev_k])
                     # print(dp[i+1][j][k],"에 이 값을 갱신 시도", dp[i][j-1][prev_k]+tmp)
