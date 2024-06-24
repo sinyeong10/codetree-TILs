@@ -9,32 +9,15 @@ max_num = sys.maxsize
 dp = [[max_num]*(len(B)+1) for _ in range(len(A)+1)]
 dp[0][0] = 0
 
-#삭제, 삽입, 변환, 그대로의 경우로 나눔! [이후로 값을 뿌리는 형태]
-for i in range(len(A)+1):
-    for j in range(len(B)+1):
-        if dp[i][j] == max_num:
-            continue
-        if i!=len(A) and j!=len(B) and A[i] == B[j]: #여기서 continue를 넣어도 되는가?
-            dp[i+1][j+1] = min(dp[i+1][j+1], dp[i][j])
-            continue
-        
-        if i != len(A): #A를 삭제하는 경우
-            dp[i+1][j] = min(dp[i+1][j], dp[i][j]+1)
-        if j != len(B): #A를 삽입하는 경우
-            dp[i][j+1] = min(dp[i][j+1], dp[i][j]+1)
-        if i != len(A) and j != len(B):
-            dp[i+1][j+1] = min(dp[i+1][j+1], dp[i][j]+1)
-
-
-
 # #삭제, 삽입, 변환, 그대로의 경우로 나눔! [이후로 값을 뿌리는 형태]
-# for i in range(len(A)-1):
-#     for j in range(len(B)-1):
-#         if dp[i][j] == max_num:
-#             continue
-#         if A[i+1] == B[j+1]: #여기서 continue를 넣어도 되는가?
+#나중에 마지막에서 뿌리는 방법의 초기값 계산의 형태의 연산이 필요해서 if문이 들어가야함..
+# for i in range(len(A)+1):
+    # for j in range(len(B)+1):
+    #     # if dp[i][j] == max_num:
+    #     #     continue
+#         if i!=len(A) and j!=len(B) and A[i] == B[j]: #여기서 continue를 넣어도 되는가?
 #             dp[i+1][j+1] = min(dp[i+1][j+1], dp[i][j])
-#             continue
+#             continue #순서만 다른 경우를 제거하는 것 같음!
         
 #         if i != len(A): #A를 삭제하는 경우
 #             dp[i+1][j] = min(dp[i+1][j], dp[i][j]+1)
@@ -43,8 +26,8 @@ for i in range(len(A)+1):
 #         if i != len(A) and j != len(B):
 #             dp[i+1][j+1] = min(dp[i+1][j+1], dp[i][j]+1)
 
-# print(dp)
-print(dp[len(A)][len(B)])
+# # print(dp)
+# print(dp[len(A)][len(B)])
 
 
 
