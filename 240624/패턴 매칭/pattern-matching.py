@@ -7,7 +7,7 @@ def solve():
     j_last = len(p)-1
     #뒤부터 채워가야  .*a와 같은 경우 처리 가능!
     while j_last >= 0:
-        print(i_last, j_last)
+        # print(i_last, j_last)
         if i_last < 0:
             return False
         if s[i_last] == p[j_last] or p[j_last] == ".":
