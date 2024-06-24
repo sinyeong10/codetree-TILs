@@ -17,6 +17,8 @@ def solve():
             while i_last >= 0 and (p[j_last-1] == s[i_last] or p[j_last-1] == "."):
                 i_last -= 1
             j_last -= 2
+        else:
+            return False
     return True
 
 print("true" if solve() else "false")
