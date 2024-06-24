@@ -8,19 +8,19 @@ max_num = sys.maxsize
 dp = [[max_num]*(len(B)+1) for _ in range(len(A)+1)]
 dp[0][0] = 0
 
-for i in range(len(A)):
-    for j in range(len(B)):
+for i in range(len(A)+1):
+    for j in range(len(B)+1):
         if dp[i][j] == max_num:
             continue
-        if A[i] == B[j]:
+        if i!=len(A) and j!=len(B) and A[i] == B[j]: #여기서 continue를 넣어도 되는가?
             dp[i+1][j+1] = min(dp[i+1][j+1], dp[i][j])
         
-        else:
-        #if i != len(A)-1: #A를 삭제하는 경우
+        if i != len(A): #A를 삭제하는 경우
             dp[i+1][j] = min(dp[i+1][j], dp[i][j]+1)
-        #if j != len(B)-1: #A를 삽입하는 경우
+        if j != len(B): #A를 삽입하는 경우
             dp[i][j+1] = min(dp[i][j+1], dp[i][j]+1)
-        #if i != len(A)-1 and j != len(B)-1:
+        if i != len(A) and j != len(B):
             dp[i+1][j+1] = min(dp[i+1][j+1], dp[i][j]+1)
 
-print(dp[len(A)-1][len(B)-1])
+# print(dp)
+print(dp[len(A)][len(B)])
