@@ -2,6 +2,28 @@ from sys import stdin
 s = stdin.readline().strip()
 p = stdin.readline().strip()
 
+new_p = []
+fix = False
+key = "!"
+for j in range(len(p)-1,-1,-1):
+    if p[j] == "*":
+        fix = True
+        key = p[j-1]
+        new_p.append(p[j])
+        new_p.append(p[j-1])
+    
+    # if fix and p[j] == key:
+    #     continue
+    
+    elif p[j] != key:
+        fix = False
+        new_p.append(p[j])
+
+# print(new_p)
+
+p = "".join(new_p[::-1])
+# print(p)
+
 def solve():
     i_last = len(s)-1
     j_last = len(p)-1
