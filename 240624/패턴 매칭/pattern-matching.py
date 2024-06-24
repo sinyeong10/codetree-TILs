@@ -14,8 +14,12 @@ def solve():
             i_last-=1
             j_last-=1
         elif p[j_last] == "*":
+            check = True
             while i_last >= 0 and (p[j_last-1] == s[i_last] or p[j_last-1] == "."):
                 i_last -= 1
+                check = False
+            if check:
+                return False
             j_last -= 2
         else:
             return False
