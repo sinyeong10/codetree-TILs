@@ -31,27 +31,27 @@ dp[0][0] = 0
 
 
 
-##이전 값을 기준으로 처리
-# #dp[i][j]에서 i는 A의 현재 처리하고 있는 인덱스 위치를 의미, j는 B
-# dp = [[0]*(len(B)+1) for _ in range(len(A)+1)] #+1은 현재 숫자가 처리하고 있는 위치이기 때문
-# #dp값 초기화
-# dp[0][0] = 0
-# for i in range(len(A)+1):
-#     dp[i][0] = i
-# for j in range(len(B)+1):
-#     dp[0][j] = j
+#이전 값을 기준으로 처리
+#dp[i][j]에서 i는 A의 현재 처리하고 있는 인덱스 위치를 의미, j는 B
+dp = [[0]*(len(B)+1) for _ in range(len(A)+1)] #+1은 현재 숫자가 처리하고 있는 위치이기 때문
+#dp값 초기화
+dp[0][0] = 0
+for i in range(len(A)+1):
+    dp[i][0] = i
+for j in range(len(B)+1):
+    dp[0][j] = j
 
-# A = "#"+A
-# B = "#"+B
+A = "#"+A
+B = "#"+B
 
-# #(삭제, 삽입, 변환), 그대로의 경우로 나눔! [이전에서 값을 가져오는 형태]
-# for i in range(1, len(A)):
-#     for j in range(1,len(B)):
-#         # print(i,j)
-#         if A[i] == B[j]: #여기서 continue를 넣어도 되는가? 가능(2가지 경우로 나눠지기 때문!)
-#             dp[i][j] = dp[i-1][j-1]
-#         else:
-#             dp[i][j] = min(dp[i-1][j-1], dp[i-1][j], dp[i][j-1]) + 1
+#(삭제, 삽입, 변환), 그대로의 경우로 나눔! [이전에서 값을 가져오는 형태]
+for i in range(1, len(A)):
+    for j in range(1,len(B)):
+        # print(i,j)
+        if A[i] == B[j]: #여기서 continue를 넣어도 되는가? 가능(2가지 경우로 나눠지기 때문!)
+            dp[i][j] = dp[i-1][j-1]
+        else:
+            dp[i][j] = min(dp[i-1][j-1], dp[i-1][j], dp[i][j-1]) + 1
         
-# # print(dp)
-# print(dp[len(A)-1][len(B)-1])
+# print(dp)
+print(dp[len(A)-1][len(B)-1])
