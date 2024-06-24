@@ -43,7 +43,7 @@ for i in range(len(A)+1):
 #             dp[i+1][j+1] = min(dp[i+1][j+1], dp[i][j]+1)
 
 # print(dp)
-print(dp[len(A)-1][len(B)-1])
+print(dp[len(A)][len(B)])
 
 
 
