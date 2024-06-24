@@ -16,6 +16,7 @@ for i in range(len(A)+1):
             continue
         if i!=len(A) and j!=len(B) and A[i] == B[j]: #여기서 continue를 넣어도 되는가?
             dp[i+1][j+1] = min(dp[i+1][j+1], dp[i][j])
+            continue
         
         if i != len(A): #A를 삭제하는 경우
             dp[i+1][j] = min(dp[i+1][j], dp[i][j]+1)
