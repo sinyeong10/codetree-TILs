@@ -63,9 +63,11 @@ for i in range(p_len-1): #1부터 마지막까지 체크
         if i != p_len-2 and p[i+2] == "*": #*인 경우, i+1의 문자를 가지고 처리해야함!
             dp[i+2][j] = True #앞의 문자를 0으로 처리하는 경우!
 
-            for all_check in range(j+1, s_len): #왜 범위가 달라지지??
-                #*앞의 문자를 기준으로 끝까지 비교함
-                #다르면 멈춤
+            for all_check in range(j+1, s_len):
+            #왜 범위가 달라지지??
+            #여기서 현재 상태까지 문제없는 지 체크한 후에 다음 상태를 +로 처리하기 때문에 값을 바로 가져오는 경우라서 범위에 주의해야 함
+            #*앞의 문자를 기준으로 끝까지 비교함
+            #다르면 멈춤
                 if p[i+1] != "." and s[all_check] != p[i+1]:
                     break
                 dp[i+2][all_check] = True
