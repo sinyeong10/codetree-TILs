@@ -74,4 +74,4 @@ for i in range(p_len-1): #1부터 마지막까지 체크
         else:
             if s[j+1] == p[i+1]:
                 dp[i+1][j+1] = True #다음 숫자 감
-print(dp[p_len-1][s_len-1])
+print("true" if dp[p_len-1][s_len-1] "false")
