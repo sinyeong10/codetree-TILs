@@ -15,11 +15,22 @@ for i in range(len_A):
     for j in range(len_B):
         dp[i+1][j+1] = max(dp[i][j+1], dp[i+1][j+1], dp[i+1][j])
         if A[i+1] == B[j+1]: #현재 위치에서 연장이 가능!
-            dp[i+1][j+1] = max(dp[i][j],0)+1
+            dp[i+1][j+1] = max(dp[i][j]+1,1,dp[i+1][j+1])
+# print(dp)
 
-if A == "#SABSA":
-    print("ABSA")
-elif A == "#ABA":
-    print("ABA")
-else:
-    print(dp)
+i = len_A
+j = len_B
+ans = []
+
+while i>0 and j>0:
+    # print(i,j)
+    if dp[i-1][j] < dp[i][j-1]: #j로 올라감
+        if dp[i][j-1] != dp[i][j]:
+            ans.append(B[j])
+        j-=1
+    else: #i로 올라감
+        if dp[i-1][j] != dp[i][j]:
+            ans.append(A[i])
+        i-=1
+
+print("".join(ans[::-1]))
