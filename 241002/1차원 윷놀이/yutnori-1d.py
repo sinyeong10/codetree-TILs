@@ -23,8 +23,14 @@ def back_track(cnt):
         move_map[idx] += action[cnt]
         back_track(cnt+1) #n-1까지 들어가고 n에서 체크함
         move_map[idx] -= action[cnt]
-    
-    
+
+    partical_ans = 0
+    for elem in move_map:
+        if elem >= m:
+            partical_ans += 1
+    ans = max(ans, partical_ans)
+    return
+
 
 back_track(0)
 
