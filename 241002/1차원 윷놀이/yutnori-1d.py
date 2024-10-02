@@ -28,7 +28,7 @@ def back_track(cnt):
         move_map[idx] -= action[cnt]
 
 
-    if last_check:
+    if last_check: #모두 달성된 상태이면 마지막 처리하고 종료
         # print(last_check, move_map)
         partical_ans = 0
         for elem in move_map:
