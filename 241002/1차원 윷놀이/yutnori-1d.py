@@ -18,9 +18,13 @@ def back_track(cnt):
         return
     
     for idx in range(k):
+        if move_map[idx] >= m:
+            continue
         move_map[idx] += action[cnt]
         back_track(cnt+1) #n-1까지 들어가고 n에서 체크함
         move_map[idx] -= action[cnt]
+    
+    
 
 back_track(0)
 
