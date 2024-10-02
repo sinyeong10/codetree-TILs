@@ -14,7 +14,7 @@ def back_track(cnt, last_idx):
         return
     for i in range(last_idx+1, n):
         pick_num.append(numbers[i])
-        back_track(cnt+1, numbers[i])
+        back_track(cnt+1, i)
         pick_num.pop()
 
 back_track(0, -1)
