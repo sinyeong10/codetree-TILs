@@ -18,5 +18,6 @@ def dfs(node):
         ans += 1
         dfs(next_node)
 
+visit[1] = True
 dfs(1)
-print(ans-1)
+print(ans)
