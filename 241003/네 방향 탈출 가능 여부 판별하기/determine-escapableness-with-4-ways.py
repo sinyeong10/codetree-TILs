@@ -1,5 +1,4 @@
 from collections import deque
-
 import sys
 sys.setrecursionlimit(10**5)
 from sys import stdin
@@ -8,7 +7,7 @@ base_2d = [list(map(int, stdin.readline().split())) for _ in range(n)]
 visited_2d = [[False for _ in range(m)] for _ in range(n)]
 
 def can_go(x,y):
-    if not(0<=x<n and 0<=y<n):
+    if not(0<=x<n and 0<=y<m):
         return False
     elif visited_2d[x][y]:
         return False
