@@ -21,6 +21,8 @@ def bfs():
     dxs, dys = [1,2,2,1,-1,-2,-2,-1],[-2,-1,1,2,2,1,-1,-2]
     while q:
         x,y = q.popleft()
+        if x==r2-1 and y==c2-1:
+            return
         step = base_2d[x][y]
         for dx, dy in zip(dxs, dys):
             next_x, next_y = x+dx, y+dy
