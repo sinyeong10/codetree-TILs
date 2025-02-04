@@ -7,6 +7,7 @@ int main() {
     cin >> a >> b;
     cout << fixed;
     cout.precision(2);
-    cout << (a+b) / (a-b);
+    //다 int라서 실수연산을 위해 형변환이 필요!
+    cout << (double)(a+b) / (a-b);
     return 0;
 }
