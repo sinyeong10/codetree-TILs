@@ -5,23 +5,21 @@ int main() {
     // Please write your code here.
     int a, b, c;
     cin >> a >> b >> c;
-    if (a < b && a < c){
-        if (b < c){
-            cout << b;
-        } else {
-            cout << c;
-        }
-    } else if (b < a && b < c){
+    if (a > b){
         if (a < c){
             cout << a;
+        } else if (c < b){
+            cout << b;
         } else {
             cout << c;
         }
-    } else if (c < a && c < b){
-        if (a < b){
-            cout << a;
-        } else {
+    } else {
+        if (b < c){
             cout << b;
+        } else if (c < a){
+            cout << a;
+        } else{
+            cout << c;
         }
     }
     return 0;
