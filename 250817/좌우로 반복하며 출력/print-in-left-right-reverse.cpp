@@ -6,13 +6,11 @@ int main() {
     int N;
     cin >> N;
     for (int i=0;i<N;i++){
-        if (i%2==0){
-            for (int j=1;j<=N;j++){
+        for (int j=1;j<=N;j++){
+            if (i%2==0){
                 cout << j;
-            }
-        } else {
-            for (int j=N;j>=1;j--){
-                cout << j;
+            } else {
+                cout << N+1-j;
             }
         }
         cout << "\n";
