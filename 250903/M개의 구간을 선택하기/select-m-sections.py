@@ -25,7 +25,7 @@ for i in range(1,N):
 
 for j in range(1,M):
     for i in range(2,N):
-        dp[i][j] = max(max(dp[i-2][j-1], dp[i-1][j])+numbers[i], dp[i-1][j])
+        dp[i][j] = max(dp[i-2][j-1], dp[i-1][j])+numbers[i]
 
 # print("\nresult")
 # for elem in dp:
