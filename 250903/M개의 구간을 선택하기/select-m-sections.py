@@ -3,7 +3,7 @@ numbers = list(map(int, input().split()))
 
 # 
 
-dp = [[-9999 for j in range(M)] for i in range(N)]
+dp = [[float("-inf") for j in range(M)] for i in range(N)]
 
 #i번째까지 j개 선택한 경우
 #현재 값 포함해야할 경우
@@ -31,7 +31,7 @@ for j in range(1,M):
 # for elem in dp:
 #     print(*elem)
 
-result = -9999
+result = float("-inf")
 for i in range(N):
     # print(i,-1, dp[i][-1])
     if result < dp[i][-1]:
