@@ -27,13 +27,13 @@ for j in range(1,M):
     for i in range(2,N):
         dp[i][j] = max(max(dp[i-2][j-1], dp[i-1][j])+numbers[i], dp[i-1][j])
 
-print("\nresult")
-for elem in dp:
-    print(*elem)
+# print("\nresult")
+# for elem in dp:
+#     print(*elem)
 
 result = -9999
 for i in range(N):
-    print(i,-1, dp[i][-1])
+    # print(i,-1, dp[i][-1])
     if result < dp[i][-1]:
         result = dp[i][-1]
 print(result)
